@@ -6,7 +6,7 @@
 
 Meta-package that installs the full **AI Helpers** suite in one command — a collection of focused Python libraries for AI / media work.
 
-[🕸️ AI Helpers landing page](https://harchaoui.org/warith/ai-helpers)
+[🌍 AI Helpers landing page](https://harchaoui.org/warith/ai-helpers)
 
 ## What's included
 

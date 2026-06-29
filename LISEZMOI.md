@@ -6,7 +6,7 @@
 
 Méta-paquet qui installe l'intégralité de la suite **AI Helpers** en une commande — une collection de bibliothèques Python ciblées pour le travail IA / média.
 
-[🕸️ Page de la suite AI Helpers](https://harchaoui.org/warith/ai-helpers)
+[🌍 Page de la suite AI Helpers](https://harchaoui.org/warith/ai-helpers)
 
 ## Ce qui est inclus
 
