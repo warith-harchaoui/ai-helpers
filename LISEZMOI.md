@@ -75,7 +75,10 @@ yth.download_video("https://www.youtube.com/watch?v=YE7VzlLtp-4", "bunny.mp4")
 yth.download_audio("https://www.youtube.com/watch?v=YE7VzlLtp-4", "bunny.mp3")
 audio, sr = ah.load_audio("bunny.mp3")
 print(vh.video_dimensions("bunny.mp4"))
+# {'width': 1280, 'height': 720, 'duration': 596.458, 'frame_rate': 24.0, 'has_sound': True}
 ```
+
+Pour des recettes composées mêlant plusieurs helpers (YouTube → frames + audio, RSS → PCM live, stream-vers-frames sur GPU, miroir vers S3 + SFTP, patterns stage-and-share), voir [📋 EXAMPLES.md](EXAMPLES.md).
 
 # Auteur
  - [Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)

@@ -38,6 +38,8 @@ You still need `ffmpeg` on PATH for the media helpers (audio / video /
 youtube / podcast / capture):
 
 - macOS 🍎 : `brew install ffmpeg`
+
+  (install `brew` thanks to [brew.sh](https://brew.sh/))
 - Ubuntu 🐧 : `sudo apt install ffmpeg`
 - Windows 🪟 : [ffmpeg.org/download.html](https://ffmpeg.org/download.html)
 
@@ -75,10 +77,14 @@ yth.download_video("https://www.youtube.com/watch?v=YE7VzlLtp-4", "bunny.mp4")
 yth.download_audio("https://www.youtube.com/watch?v=YE7VzlLtp-4", "bunny.mp3")
 audio, sr = ah.load_audio("bunny.mp3")
 print(vh.video_dimensions("bunny.mp4"))
+# {'width': 1280, 'height': 720, 'duration': 596.458, 'frame_rate': 24.0, 'has_sound': True}
 ```
 
 # Author
- - [Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)
+[Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)
 
 # Acknowledgements
 Special thanks to [Mohamed Chelali](https://mchelali.github.io) and [Bachir Zerroug](https://www.linkedin.com/in/bachirzerroug) for fruitful discussions.
+
+# License
+This project is licensed under the terms of the [BSD-3-Clause](LICENSE) license.

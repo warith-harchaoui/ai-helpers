@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Documentation
+
+- Add `EXAMPLES.md` at the repo root with composed recipes spanning
+  multiple helpers (YouTube → frames + audio, RSS → live PCM, stream-to-
+  frames on GPU, S3 + SFTP mirror, stage-and-share patterns); referenced
+  from README + LISEZMOI.
+- Every `brew install <pkg>` mention is paired with a brew.sh hint when
+  not already obvious from context.
+- `.gitignore` updated to drop accidental `*config.json` commits while
+  keeping `*config.json.example` templates tracked (defensive — the
+  meta-package itself doesn't load credentials).
+
 ## [0.1.0] - 2026-06-29
 
 First release.
