@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-06-29
+
+### Changed
+
+- Bump `capture-helper` pin from `v0.0.1` to `v0.1.0` — the helper
+  graduates from scaffold (types + `list_sources`) to live INPUT layer
+  (`pick_source`, `iter_camera_frames`, `iter_mic_audio`,
+  `ffmpeg_input_args`, `MicFrame`). Composes with `video_helper.extract_frames`
+  and `podcast_helper.extract_audio_stream` contracts.
+
+## [0.1.0] - 2026-06-29 — superseded by 0.1.1
+
 ### Documentation
 
 - Add `EXAMPLES.md` at the repo root with composed recipes spanning

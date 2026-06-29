@@ -19,7 +19,7 @@ Méta-paquet qui installe l'intégralité de la suite **AI Helpers** en une comm
 | [youtube-helper](https://github.com/warith-harchaoui/youtube-helper) | `youtube_helper as yth` | Wrapper yt-dlp : téléchargements, catalogue / picker de flux, métadonnées d'engagement sans API. |
 | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 pour AWS S3 + S3-compatibles (MinIO / R2 / B2 / Spaces / Wasabi). |
 | [podcast-helper](https://github.com/warith-harchaoui/podcast-helper) | `podcast_helper as ph` | Consommateur universel de flux audio : URL en entrée → PCM en sortie (RSS, yt-dlp, direct, …). |
-| [capture-helper](https://github.com/warith-harchaoui/capture-helper) | `capture_helper as ch` | Couche capture / traitement / diffusion inspirée d'OBS (squelette). |
+| [capture-helper](https://github.com/warith-harchaoui/capture-helper) | `capture_helper as ch` | Couche capture / traitement / diffusion inspirée d'OBS (itérateurs caméra + micro live composant avec les contrats de video-helper / podcast-helper). |
 
 Tous sous licence **BSD-3-Clause** (la même que scikit-learn / numpy / scipy).
 
@@ -53,7 +53,7 @@ sftp-helper     @ v2.1.0
 youtube-helper  @ v1.1.2
 bucket-helper   @ v0.1.0
 podcast-helper  @ v0.1.3
-capture-helper  @ v0.0.1
+capture-helper  @ v0.1.0
 ```
 
 Une release du méta-paquet suivra chaque release de helper. Si vous n'avez
