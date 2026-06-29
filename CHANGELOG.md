@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-06-29
+
+### Changed
+
+- Bump `podcast-helper` pin from `v0.1.4` to `v0.2.0` — adds the
+  long-planned `speed=<float>` (VOD only, pitch-preserving via
+  ffmpeg's `atempo=`) and `record_to=<path>` (parallel compressed
+  archive of the live PCM, codec picked from the extension) knobs to
+  `extract_audio_stream`.
+
 ## [0.1.2] - 2026-06-29
 
 ### Changed

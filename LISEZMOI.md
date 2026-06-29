@@ -52,7 +52,7 @@ video-helper    @ v1.5.2
 sftp-helper     @ v2.1.0
 youtube-helper  @ v1.2.0
 bucket-helper   @ v0.1.0
-podcast-helper  @ v0.1.4
+podcast-helper  @ v0.2.0
 capture-helper  @ v0.1.0
 ```
 
