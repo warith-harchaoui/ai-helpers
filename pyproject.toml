@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-helpers"
+version = "0.1.0"
+description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Warith HARCHAOUI", email = "warithmetics@deraison.ai"},
+]
+keywords = ["ai", "machine-learning", "audio", "video", "podcast", "ffmpeg", "yt-dlp", "s3", "sftp", "meta-package"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = [
+    "os-helper @ git+https://github.com/warith-harchaoui/os-helper.git@v1.3.0",
+    "audio-helper @ git+https://github.com/warith-harchaoui/audio-helper.git@v1.4.2",
+    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.5.1",
+    "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.1.0",
+    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.1.2",
+    "bucket-helper @ git+https://github.com/warith-harchaoui/bucket-helper.git@v0.1.0",
+    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.1.3",
+    "capture-helper @ git+https://github.com/warith-harchaoui/capture-helper.git@v0.0.1",
+]
+
+[project.urls]
+Homepage = "https://harchaoui.org/warith/ai-helpers"
+Repository = "https://github.com/warith-harchaoui/ai-helpers"
+Issues = "https://github.com/warith-harchaoui/ai-helpers/issues"
