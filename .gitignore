@@ -22,3 +22,6 @@ Thumbs.db
 
 # Pytest
 .pytest_cache/
+
+# Personal scratch notes (do not commit)
+.private/
