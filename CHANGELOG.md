@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-06-29
+
+### Changed
+
+- Bump `video-helper` pin from `v1.5.1` to `v1.5.2` — URL-aware
+  `is_valid_video_file` + `video_dimensions(http_headers=)`, unblocks
+  the documented "pick_video_stream + extract_frames" pipeline for
+  yt-dlp-resolved direct URLs.
+- Bump `youtube-helper` pin from `v1.1.2` to `v1.2.0` — adds
+  `extract_frames_stream(url, ...)` wrapper, a one-call composition
+  of `pick_video_stream` + `video_helper.extract_frames` with
+  auto-wired headers.
+- Bump `podcast-helper` pin from `v0.1.3` to `v0.1.4` — cascade-only
+  re-pin of youtube-helper to keep the dep graph internally consistent.
+
 ## [0.1.1] - 2026-06-29
 
 ### Changed

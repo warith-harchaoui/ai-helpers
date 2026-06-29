@@ -50,11 +50,11 @@ This release tracks the helpers at these tags:
 ```
 os-helper       @ v1.3.0
 audio-helper    @ v1.4.2
-video-helper    @ v1.5.1
+video-helper    @ v1.5.2
 sftp-helper     @ v2.1.0
-youtube-helper  @ v1.1.2
+youtube-helper  @ v1.2.0
 bucket-helper   @ v0.1.0
-podcast-helper  @ v0.1.3
+podcast-helper  @ v0.1.4
 capture-helper  @ v0.1.0
 ```
 

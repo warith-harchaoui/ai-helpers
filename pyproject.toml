@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-helpers"
-version = "0.1.1"
+version = "0.1.2"
 description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper."
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
@@ -30,11 +30,11 @@ classifiers = [
 dependencies = [
     "os-helper @ git+https://github.com/warith-harchaoui/os-helper.git@v1.3.0",
     "audio-helper @ git+https://github.com/warith-harchaoui/audio-helper.git@v1.4.2",
-    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.5.1",
+    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.5.2",
     "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.1.0",
-    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.1.2",
+    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.2.0",
     "bucket-helper @ git+https://github.com/warith-harchaoui/bucket-helper.git@v0.1.0",
-    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.1.3",
+    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.1.4",
     "capture-helper @ git+https://github.com/warith-harchaoui/capture-helper.git@v0.1.0",
 ]
 
