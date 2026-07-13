@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-helpers"
+version = "0.2.0"
+description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper, vocal-helper, speaker-helper."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Warith HARCHAOUI", email = "warithmetics@deraison.ai"},
+]
+keywords = ["ai", "machine-learning", "audio", "video", "podcast", "ffmpeg", "yt-dlp", "s3", "sftp", "meta-package"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+]
+# Base install is intentionally light — just the shared foundation every
+# helper builds on. Everything else lives behind group extras below, so you
+# install only the corner of the suite you actually need.
+dependencies = [
+    "os-helper>=1.5.0",
+]
+
+[project.optional-dependencies]
+# 🔊 Audio & voice — load / convert / separate audio, live speech-to-text
+# with diarization (vocal-helper), and text-to-speech (speaker-helper).
+audio = [
+    "audio-helper>=1.5.5",
+    "vocal-helper @ git+https://github.com/warith-harchaoui/vocal-helper.git@v0.3.7",
+    "speaker-helper @ git+https://github.com/warith-harchaoui/speaker-helper.git@v0.7.1",
+]
+# 🎬 Video & capture — frame extraction / conversion + live camera/mic capture.
+video = [
+    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.6.2",
+    "capture-helper>=0.2.2",
+]
+# 🌐 Media acquisition — pull audio / video from the internet.
+acquire = [
+    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.3.3",
+    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.3.3",
+]
+# 🗄️ Storage & transfer — S3-compatible object storage + SFTP.
+storage = [
+    "bucket-helper>=0.2.2",
+    "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.2.2",
+]
+# 🧰 Everything — the kitchen sink. Deliberately heavy: only reach for this
+# if you really want the whole suite in one environment.
+all = [
+    "audio-helper>=1.5.5",
+    "vocal-helper @ git+https://github.com/warith-harchaoui/vocal-helper.git@v0.3.7",
+    "speaker-helper @ git+https://github.com/warith-harchaoui/speaker-helper.git@v0.7.1",
+    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.6.2",
+    "capture-helper>=0.2.2",
+    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.3.3",
+    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.3.3",
+    "bucket-helper>=0.2.2",
+    "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.2.2",
+]
+
+[project.urls]
+Homepage = "https://harchaoui.org/warith/ai-helpers"
+Repository = "https://github.com/warith-harchaoui/ai-helpers"
+Issues = "https://github.com/warith-harchaoui/ai-helpers/issues"
