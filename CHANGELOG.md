@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-07-14
+
+### Changed
+- Flip every sibling dependency from a `git+https` pin to a PyPI version
+  specifier now that the whole suite is published on PyPI
+  (`os-helper>=1.5.0`, `audio-helper>=1.5.6`, `video-helper>=1.6.3`,
+  `sftp-helper>=2.2.3`, `youtube-helper>=1.3.4`, `bucket-helper>=0.2.3`,
+  `podcast-helper>=0.3.4`, `capture-helper>=0.2.3`, `vocal-helper>=0.4.1`,
+  `speaker-helper>=0.7.2`). `pip install ai-helpers[all]` now installs
+  entirely from PyPI.
+- Standardize the README import aliases: `vocal_helper as voh`,
+  `speaker_helper as spkh`, `sftp_helper as sftph`.
+
+
 ## [0.2.0] - 2026-07-13
 
 ### Added

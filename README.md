@@ -15,9 +15,9 @@ The helpers are organized into **groups** — install just the corner you need (
 | Group | Helper | Module | What it does |
 |---|---|---|---|
 | 🧱 Core | [os-helper](https://github.com/warith-harchaoui/os-helper) | `os_helper as osh` | Cross-platform file / system / hash / config / timing utilities. |
-| 🔊 Audio & voice | [audio-helper](https://github.com/warith-harchaoui/audio-helper) | `audio_helper as ah` | Load / convert / split / concat audio; optional Demucs source separation. |
-| 🔊 Audio & voice | [vocal-helper](https://github.com/warith-harchaoui/vocal-helper) | `vocal_helper as vch` | Live PCM → VAD (Silero) → online speaker diarization → Whisper STT → optional LLM summary. |
-| 🔊 Audio & voice | [speaker-helper](https://github.com/warith-harchaoui/speaker-helper) | `speaker_helper as skh` | Offline + streaming text-to-speech over a local TTS engine, with voice cloning — the inverse of vocal-helper. |
+| 🔊 Audio & voice | [audio-helper](https://github.com/warith-harchaoui/audio-helper) | `audio_helper as ah` | Load / convert / split / concat audio; optional source separation. |
+| 🔊 Audio & voice | [vocal-helper](https://github.com/warith-harchaoui/vocal-helper) | `vocal_helper as voh` | Live PCM → Voice Activity Detection → online speaker diarization → Speech to Text → optional LLM summary. |
+| 🔊 Audio & voice | [speaker-helper](https://github.com/warith-harchaoui/speaker-helper) | `speaker_helper as spkh` | Offline + streaming Speech Synthesis over a local engine, with voice cloning — the inverse of vocal-helper. |
 | 🎬 Video & capture | [video-helper](https://github.com/warith-harchaoui/video-helper) | `video_helper as vh` | Multi-backend frame extraction (VidGear / PyAV / ffmpeg-pipe), conversion, subtitles. |
 | 🎬 Video & capture | [capture-helper](https://github.com/warith-harchaoui/capture-helper) | `capture_helper as ch` | OBS-inspired capture / process / publish layer (live camera + mic iterators composing with video-helper / podcast-helper contracts). |
 | 🌐 Media acquisition | [youtube-helper](https://github.com/warith-harchaoui/youtube-helper) | `youtube_helper as yth` | yt-dlp wrapper: downloads, stream catalog / picker, no-API engagement metadata. |
@@ -58,13 +58,13 @@ almost too much):
 
 ```bash
 # one group
-pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.0"
+pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
 
 # several groups at once
-pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.0"
+pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
 
 # absolutely everything
-pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.0"
+pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
 ```
 
 Available extras: `audio`, `video`, `acquire`, `storage`, `all`.
@@ -83,16 +83,16 @@ youtube / podcast / capture / vocal):
 This release tracks the helpers at these tags:
 
 ```
-os-helper       @ v1.5.0
-audio-helper    @ v1.5.5
-video-helper    @ v1.6.2
-sftp-helper     @ v2.2.2
-youtube-helper  @ v1.3.3
-bucket-helper   @ v0.2.2
-podcast-helper  @ v0.3.3
-capture-helper  @ v0.2.2
-vocal-helper    @ v0.3.7
-speaker-helper  @ v0.7.1
+os-helper       @ v1.5.1
+audio-helper    @ v1.5.7
+video-helper    @ v1.6.4
+sftp-helper     @ v2.2.3
+youtube-helper  @ v1.3.4
+bucket-helper   @ v0.2.3
+podcast-helper  @ v0.3.4
+capture-helper  @ v0.2.3
+vocal-helper    @ v0.4.2
+speaker-helper  @ v0.7.3
 ```
 
 A meta-package release will follow each helper release. If you only need

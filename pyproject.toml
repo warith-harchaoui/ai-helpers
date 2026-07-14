@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-helpers"
-version = "0.2.0"
+version = "0.2.1"
 description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper, vocal-helper, speaker-helper."
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
@@ -38,37 +38,37 @@ dependencies = [
 # 🔊 Audio & voice — load / convert / separate audio, live speech-to-text
 # with diarization (vocal-helper), and text-to-speech (speaker-helper).
 audio = [
-    "audio-helper>=1.5.5",
-    "vocal-helper @ git+https://github.com/warith-harchaoui/vocal-helper.git@v0.3.7",
-    "speaker-helper @ git+https://github.com/warith-harchaoui/speaker-helper.git@v0.7.1",
+    "audio-helper>=1.5.6",
+    "vocal-helper>=0.4.1",
+    "speaker-helper>=0.7.2",
 ]
 # 🎬 Video & capture — frame extraction / conversion + live camera/mic capture.
 video = [
-    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.6.2",
-    "capture-helper>=0.2.2",
+    "video-helper>=1.6.3",
+    "capture-helper>=0.2.3",
 ]
 # 🌐 Media acquisition — pull audio / video from the internet.
 acquire = [
-    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.3.3",
-    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.3.3",
+    "youtube-helper>=1.3.4",
+    "podcast-helper>=0.3.4",
 ]
 # 🗄️ Storage & transfer — S3-compatible object storage + SFTP.
 storage = [
-    "bucket-helper>=0.2.2",
-    "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.2.2",
+    "bucket-helper>=0.2.3",
+    "sftp-helper>=2.2.3",
 ]
 # 🧰 Everything — the kitchen sink. Deliberately heavy: only reach for this
 # if you really want the whole suite in one environment.
 all = [
-    "audio-helper>=1.5.5",
-    "vocal-helper @ git+https://github.com/warith-harchaoui/vocal-helper.git@v0.3.7",
-    "speaker-helper @ git+https://github.com/warith-harchaoui/speaker-helper.git@v0.7.1",
-    "video-helper @ git+https://github.com/warith-harchaoui/video-helper.git@v1.6.2",
-    "capture-helper>=0.2.2",
-    "youtube-helper @ git+https://github.com/warith-harchaoui/youtube-helper.git@v1.3.3",
-    "podcast-helper @ git+https://github.com/warith-harchaoui/podcast-helper.git@v0.3.3",
-    "bucket-helper>=0.2.2",
-    "sftp-helper @ git+https://github.com/warith-harchaoui/sftp-helper.git@v2.2.2",
+    "audio-helper>=1.5.6",
+    "vocal-helper>=0.4.1",
+    "speaker-helper>=0.7.2",
+    "video-helper>=1.6.3",
+    "capture-helper>=0.2.3",
+    "youtube-helper>=1.3.4",
+    "podcast-helper>=0.3.4",
+    "bucket-helper>=0.2.3",
+    "sftp-helper>=2.2.3",
 ]
 
 [project.urls]
