@@ -24,9 +24,10 @@ The helpers are organized into **groups** — install just the corner you need (
 | 🌐 Media acquisition | [podcast-helper](https://github.com/warith-harchaoui/podcast-helper) | `podcast_helper as ph` | Universal audio stream consumer: URL-in → PCM-out (RSS, yt-dlp, direct, …). |
 | 🗄️ Storage & transfer | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 for AWS S3 + S3-compatible (MinIO / R2 / B2 / Spaces / Wasabi). |
 | 🗄️ Storage & transfer | [sftp-helper](https://github.com/warith-harchaoui/sftp-helper) | `sftp_helper as sftph` | Paramiko-based SFTP with strict host-key verification + `remote_tempfile`. |
+| 📄 Documents | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Markdown → DOCX / PPTX / PDF bridge on Pandoc, with curated styling, Mermaid rendering and bibliography support. |
 | 🧪 WIP (not bundled) | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Fully-local, privacy-first diarized meeting recorder. **Work in progress** — not installed by the meta-package yet. |
 
-The 10 bundled helpers are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
+The 11 bundled packages are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
 
 ## Install
 
@@ -46,6 +47,9 @@ pip install youtube-helper podcast-helper
 
 # 🗄️ Storage & transfer
 pip install bucket-helper sftp-helper
+
+# 📄 Documents
+pip install md2star
 
 # 🧱 Core only (foundation utilities)
 pip install os-helper
@@ -67,7 +71,7 @@ pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/a
 pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
 ```
 
-Available extras: `audio`, `video`, `acquire`, `storage`, `all`.
+Available extras: `audio`, `video`, `acquire`, `storage`, `documents`, `all`.
 
 You still need `ffmpeg` on PATH for the media helpers (audio / video /
 youtube / podcast / capture / vocal):
@@ -93,6 +97,7 @@ podcast-helper  @ v0.3.4
 capture-helper  @ v0.2.3
 vocal-helper    @ v0.4.2
 speaker-helper  @ v0.7.3
+md2star         @ v2.4.1
 ```
 
 A meta-package release will follow each helper release. If you only need

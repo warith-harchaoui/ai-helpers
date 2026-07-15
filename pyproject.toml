@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ai-helpers"
 version = "0.2.1"
-description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper, vocal-helper, speaker-helper."
+description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper, vocal-helper, speaker-helper, md2star."
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 license = {text = "BSD-3-Clause"}
@@ -57,6 +57,10 @@ storage = [
     "bucket-helper>=0.2.3",
     "sftp-helper>=2.2.3",
 ]
+# 📄 Documents — Markdown → DOCX/PPTX/PDF bridge on Pandoc.
+documents = [
+    "md2star>=2.4.1",
+]
 # 🧰 Everything — the kitchen sink. Deliberately heavy: only reach for this
 # if you really want the whole suite in one environment.
 all = [
@@ -69,6 +73,7 @@ all = [
     "podcast-helper>=0.3.4",
     "bucket-helper>=0.2.3",
     "sftp-helper>=2.2.3",
+    "md2star>=2.4.1",
 ]
 
 [project.urls]

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.1] - 2026-07-14
 
+### Added
+- `md2star` (`md2star`) joins the suite — a Markdown → DOCX/PPTX/PDF bridge on
+  Pandoc, with curated styling, Mermaid rendering and bibliography support.
+  Installable via the new `documents` extra (`pip install "ai-helpers[documents]"`)
+  and bundled in `[all]`. BSD-3-Clause, like the other bundled packages.
+
 ### Changed
 - Flip every sibling dependency from a `git+https` pin to a PyPI version
   specifier now that the whole suite is published on PyPI

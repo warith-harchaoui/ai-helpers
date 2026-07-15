@@ -58,7 +58,7 @@ MOCKS: list[str] = [
     "feedparser", "podcastparser", "yt_dlp", "boto3", "botocore", "paramiko",
     "fastapi", "uvicorn", "fastapi_mcp", "starlette", "deepeval", "giskard",
     "ollama", "demucs", "librosa", "soundfile", "transformers",
-    "huggingface_hub", "md2star", "click",
+    "huggingface_hub", "click",
 ]
 
 
@@ -138,6 +138,9 @@ HELPERS: list[Helper] = [
            "S3-compatible object storage: upload, download, mirror and stage-and-share patterns."),
     Helper("sftp-helper", "sftp_helper", "SFTP Helper", "Storage & Transfer",
            "SFTP: upload, download, mirror."),
+    Helper("md2star", "md2star", "md2star", "Notes & Docs",
+           "Markdown → DOCX/PPTX/PDF bridge on Pandoc, with curated styling, "
+           "Mermaid rendering and bibliography support."),
     Helper("notes-helper", "notes_helper", "Notes Helper", "Notes & Docs",
            "Turn recordings into structured notes: transcription, diarization and LLM "
            "synthesis into Markdown / DOCX / vault outputs.", src_layout=True),
