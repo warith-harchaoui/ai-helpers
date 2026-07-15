@@ -2,7 +2,7 @@
 
 [🇫🇷](https://github.com/warith-harchaoui/ai-helpers/blob/main/LISEZMOI.md) · [🇬🇧](https://github.com/warith-harchaoui/ai-helpers/blob/main/README.md)
 
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/warith-harchaoui/ai-helpers/blob/main/LICENSE) [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue.svg)](#)
+[![CI](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml) [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/warith-harchaoui/ai-helpers/blob/main/LICENSE) [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue.svg)](#)
 
 Meta-package that installs the full **AI Helpers** suite in one command — a collection of focused Python libraries for AI / media work.
 
@@ -122,11 +122,11 @@ print(vh.video_dimensions("bunny.mp4"))
 # {'width': 1280, 'height': 720, 'duration': 596.458, 'frame_rate': 24.0, 'has_sound': True}
 ```
 
-# Author
+## Author
 [Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)
 
-# Acknowledgements
+## Acknowledgements
 Special thanks to [Mohamed Chelali](https://mchelali.github.io) and [Bachir Zerroug](https://www.linkedin.com/in/bachirzerroug) for fruitful discussions.
 
-# License
+## License
 This project is licensed under the terms of the [BSD-3-Clause](https://github.com/warith-harchaoui/ai-helpers/blob/main/LICENSE) license.
