@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Standardize the README import aliases: `vocal_helper as voh`,
   `speaker_helper as spkh`, `sftp_helper as sftph`.
 
+### Documentation
+- Resync LISEZMOI.md (French) to mirror README.md (11 helpers + md2star);
+  refresh the pinned-versions table to the latest helper tags.
+
 
 ## [0.2.0] - 2026-07-13
 

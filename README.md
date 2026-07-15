@@ -87,16 +87,16 @@ youtube / podcast / capture / vocal):
 This release tracks the helpers at these tags:
 
 ```
-os-helper       @ v1.5.1
-audio-helper    @ v1.5.7
-video-helper    @ v1.6.4
-sftp-helper     @ v2.2.3
-youtube-helper  @ v1.3.4
-bucket-helper   @ v0.2.3
-podcast-helper  @ v0.3.4
-capture-helper  @ v0.2.3
-vocal-helper    @ v0.4.2
-speaker-helper  @ v0.7.3
+os-helper       @ v1.5.2
+audio-helper    @ v1.5.8
+video-helper    @ v1.6.5
+sftp-helper     @ v2.2.4
+youtube-helper  @ v1.3.5
+bucket-helper   @ v0.2.4
+podcast-helper  @ v0.3.5
+capture-helper  @ v0.2.4
+vocal-helper    @ v0.4.3
+speaker-helper  @ v0.7.4
 md2star         @ v2.4.1
 ```
 
