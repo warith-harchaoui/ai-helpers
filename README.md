@@ -122,6 +122,44 @@ print(vh.video_dimensions("bunny.mp4"))
 # {'width': 1280, 'height': 720, 'duration': 596.458, 'frame_rate': 24.0, 'has_sound': True}
 ```
 
+## Composed examples
+
+The helpers are designed to chain. Here the suite turns **a YouTube talk into a
+shareable Word document and PDF** — acquisition, speech-to-text, and typesetting,
+each stage a different helper:
+
+**🌐 youtube-helper → 🗣️ vocal-helper → 📄 md2star (`md2docx` / `md2pdf`)**
+
+```python
+import youtube_helper as yth                    # 🌐 acquisition
+import audio_helper as ah                        # 🔊 decode to PCM
+from vocal_helper.asr import transcribe_pcm      # 🗣️ speech-to-text (Whisper)
+
+URL = "https://www.youtube.com/watch?v=YE7VzlLtp-4"
+
+# 1) Acquire — pull the talk's audio (16 kHz mono is ideal for ASR).
+yth.download_audio(URL, "talk.mp3", target_sample_rate=16000)
+
+# 2) Transcribe — Whisper on the decoded PCM samples.
+pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True)
+transcript = transcribe_pcm(pcm, sr, language="en")
+
+# 3) Hand off to md2star — write a titled Markdown file for typesetting.
+with open("talk.md", "w", encoding="utf-8") as fh:
+    fh.write(f"# Talk transcript\n\n_Source: {URL}_\n\n{transcript}\n")
+```
+
+```bash
+# 4) Typeset the transcript as a Word document and a PDF (md2star CLIs).
+md2docx talk.md      # → talk.docx
+md2pdf  talk.md      # → talk.pdf
+```
+
+Because md2star's `md → docx → pdf` render is a faithful, reversible one (see the
+[md2star round-trip identity](https://github.com/warith-harchaoui/md2star#round-trip-fidelity)),
+the resulting documents can be read straight back to Markdown without losing the
+transcript's text.
+
 ## Author
 [Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)
 

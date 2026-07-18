@@ -122,6 +122,44 @@ print(vh.video_dimensions("bunny.mp4"))
 # {'width': 1280, 'height': 720, 'duration': 596.458, 'frame_rate': 24.0, 'has_sound': True}
 ```
 
+## Exemples composés
+
+Les helpers sont faits pour s'enchaîner. Ici, la suite transforme **une
+conférence YouTube en document Word et PDF partageables** — acquisition,
+reconnaissance vocale et mise en page, chaque étape par un helper différent :
+
+**🌐 youtube-helper → 🗣️ vocal-helper → 📄 md2star (`md2docx` / `md2pdf`)**
+
+```python
+import youtube_helper as yth                    # 🌐 acquisition
+import audio_helper as ah                        # 🔊 décodage en PCM
+from vocal_helper.asr import transcribe_pcm      # 🗣️ reconnaissance vocale (Whisper)
+
+URL = "https://www.youtube.com/watch?v=YE7VzlLtp-4"
+
+# 1) Acquérir — récupérer l'audio de la conférence (16 kHz mono, idéal pour l'ASR).
+yth.download_audio(URL, "talk.mp3", target_sample_rate=16000)
+
+# 2) Transcrire — Whisper sur les échantillons PCM décodés.
+pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True)
+transcript = transcribe_pcm(pcm, sr, language="fr")
+
+# 3) Passer la main à md2star — écrire un fichier Markdown titré pour la mise en page.
+with open("talk.md", "w", encoding="utf-8") as fh:
+    fh.write(f"# Transcription de la conférence\n\n_Source : {URL}_\n\n{transcript}\n")
+```
+
+```bash
+# 4) Mettre en page la transcription en document Word et en PDF (CLIs md2star).
+md2docx talk.md      # → talk.docx
+md2pdf  talk.md      # → talk.pdf
+```
+
+Comme le rendu `md → docx → pdf` de md2star est fidèle et réversible (voir
+l'[identité d'aller-retour de md2star](https://github.com/warith-harchaoui/md2star#round-trip-fidelity)),
+les documents produits peuvent être relus en Markdown sans perdre le texte de
+la transcription.
+
 ## Auteur
 [Warith HARCHAOUI](https://linkedin.com/in/warith-harchaoui)
 
