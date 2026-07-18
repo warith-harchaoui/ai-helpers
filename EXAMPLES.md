@@ -48,7 +48,7 @@ Install the full suite in one command:
 
 ```bash
 pip install --force-reinstall --no-cache-dir \
-    git+https://github.com/warith-harchaoui/ai-helpers.git@v0.1.0
+    git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1
 ```
 
 This pulls in all 8 helpers at compatible pinned versions plus their
