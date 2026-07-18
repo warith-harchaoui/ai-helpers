@@ -1,0 +1,34 @@
+#!/bin/sh
+# pre-push — local gate for the network example tests that CI cannot run.
+#
+# YouTube bot-blocks datacenter IPs (it fails even with cookies — yt-dlp #12045 /
+# #15392), so the "youtube-helper -> ..." download tests in tests/test_examples.py
+# self-skip in CI and are verified HERE instead, on the coder's residential IP. If
+# they fail, this hook aborts the push, so a broken example never reaches CI or
+# users. The deterministic offline composed test still runs for real in CI.
+#
+# Enable once per clone:   git config core.hooksPath .githooks
+# Bypass in a pinch:       git push --no-verify
+
+# Locate a python that has pytest. On a machine without the suite installed
+# (e.g. a docs-only checkout) we do NOT block the push — the module's own
+# skip guards already make the tests a no-op there.
+PY="$(command -v python3 || command -v python)"
+if [ -z "$PY" ] || ! "$PY" -c "import pytest" >/dev/null 2>&1; then
+  echo "pre-push: pytest not available here — skipping the local example gate."
+  exit 0
+fi
+
+# Gate on the composed example's ACQUISITION stage (youtube-helper -> mp3) — the
+# fast, representative network check CI can't run (~10 s: one short audio pull).
+# The heavier full-video "quick example" stays a manual `-m slow` run; the offline
+# composed test is left to CI.
+echo "pre-push: verifying the YouTube acquisition example locally (CI can't — YouTube blocks datacenter IPs)..."
+if ! "$PY" -m pytest tests/test_examples.py::test_composed_example_youtube_acquire -q; then
+  echo ""
+  echo "pre-push: the local YouTube example tests FAILED — push aborted."
+  echo "  Fix them, or bypass once with:  git push --no-verify"
+  exit 1
+fi
+echo "pre-push: example tests passed — pushing."
+exit 0

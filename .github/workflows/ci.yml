@@ -82,20 +82,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[all,test]"
 
-      - name: Run the example tests (composed example runs for real)
-        env:
-          # YouTube blocks datacenter IPs (all CI runners) with "Sign in to confirm
-          # you're not a bot". Authenticated cookies are the reliable fix: add a repo
-          # secret named YOUTUBE_COOKIES holding a Netscape cookies.txt exported from
-          # a logged-in browser (yt-dlp wiki: "Exporting YouTube cookies"). We write
-          # it to a file and hand it to youtube-helper via YOUTUBE_HELPER_COOKIES.
-          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
-        run: |
-          if [ -n "$YOUTUBE_COOKIES" ]; then
-            printf '%s\n' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/yt_cookies.txt"
-            export YOUTUBE_HELPER_COOKIES="$RUNNER_TEMP/yt_cookies.txt"
-            echo "Using YouTube cookies from the YOUTUBE_COOKIES repo secret."
-          else
-            echo "::warning::YOUTUBE_COOKIES secret is not set — the YouTube download tests will fail until you add it."
-          fi
-          python -m pytest tests/test_examples.py -v
+      - name: Run the example tests (offline composed example runs for real)
+        # GitHub Actions sets CI=true, so the two network YouTube download tests
+        # self-skip here — YouTube bot-blocks datacenter IPs (it fails even with
+        # cookies, per yt-dlp #12045/#15392). Those download stages are gated LOCALLY
+        # instead, by the pre-push hook (.githooks/pre-push), which runs them on the
+        # coder's residential IP and blocks the push if they fail. What runs for real
+        # in CI is the deterministic offline composed test (audio → transcript →
+        # docx/pdf), which needs no network.
+        run: python -m pytest tests/test_examples.py -v
