@@ -82,18 +82,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[all,test]"
 
-      # YouTube answers "Sign in to confirm you're not a bot" to datacenter IPs
-      # (all CI runners). The fix that needs no personal cookies is a proof-of-origin
-      # (PO) token provider: run bgutil's provider and install its yt-dlp plugin, and
-      # yt-dlp (hence youtube-helper) fetches a PO token and downloads normally.
-      - name: Start bgutil PO-token provider (bypass YouTube bot check)
-        run: |
-          docker run -d --name bgutil-provider -p 4416:4416 \
-            brainicism/bgutil-ytdlp-pot-provider:latest
-          # give the node server a moment to come up
-          sleep 8
-      - name: Install the yt-dlp PO-token plugin
-        run: pip install bgutil-ytdlp-pot-provider
-
       - name: Run the example tests (composed example runs for real)
-        run: python -m pytest tests/test_examples.py -v
+        env:
+          # YouTube blocks datacenter IPs (all CI runners) with "Sign in to confirm
+          # you're not a bot". Authenticated cookies are the reliable fix: add a repo
+          # secret named YOUTUBE_COOKIES holding a Netscape cookies.txt exported from
+          # a logged-in browser (yt-dlp wiki: "Exporting YouTube cookies"). We write
+          # it to a file and hand it to youtube-helper via YOUTUBE_HELPER_COOKIES.
+          YOUTUBE_COOKIES: ${{ secrets.YOUTUBE_COOKIES }}
+        run: |
+          if [ -n "$YOUTUBE_COOKIES" ]; then
+            printf '%s\n' "$YOUTUBE_COOKIES" > "$RUNNER_TEMP/yt_cookies.txt"
+            export YOUTUBE_HELPER_COOKIES="$RUNNER_TEMP/yt_cookies.txt"
+            echo "Using YouTube cookies from the YOUTUBE_COOKIES repo secret."
+          else
+            echo "::warning::YOUTUBE_COOKIES secret is not set — the YouTube download tests will fail until you add it."
+          fi
+          python -m pytest tests/test_examples.py -v
