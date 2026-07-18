@@ -88,16 +88,16 @@ Cette release suit les helpers à ces tags :
 
 ```
 os-helper       @ v1.5.2
-audio-helper    @ v1.5.8
+audio-helper    @ v1.5.9
 video-helper    @ v1.6.5
 sftp-helper     @ v2.2.4
-youtube-helper  @ v1.3.5
+youtube-helper  @ v1.3.9
 bucket-helper   @ v0.2.4
-podcast-helper  @ v0.3.5
+podcast-helper  @ v0.3.6
 capture-helper  @ v0.2.4
-vocal-helper    @ v0.4.3
+vocal-helper    @ v0.4.7
 speaker-helper  @ v0.7.4
-md2star         @ v2.4.1
+md2star         @ v2.6.0
 ```
 
 Une release du méta-paquet suivra chaque release de helper. Si vous n'avez
