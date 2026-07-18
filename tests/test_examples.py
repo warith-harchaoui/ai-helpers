@@ -58,8 +58,8 @@ pytestmark = pytest.mark.skipif(
 # without any network round-trip.
 _FIXTURE = Path(__file__).parent / "fixtures" / "speech.wav"
 
-# The talk used by the README examples (Big Buck Bunny — a stable, public clip).
-_URL = "https://www.youtube.com/watch?v=YE7VzlLtp-4"
+# A short, stable public clip used by the network tests (keeps CI fast).
+_URL = "https://www.youtube.com/watch?v=FisrbY90td0"
 
 
 def test_composed_example_offline(tmp_path: Path) -> None:
@@ -105,37 +105,27 @@ def test_composed_example_offline(tmp_path: Path) -> None:
 def test_composed_example_youtube_acquire(tmp_path: Path) -> None:
     """Acquisition stage of the composed example: ``youtube-helper → mp3``.
 
-    Hits YouTube, so it skips (not fails) when the download is blocked — CI is
-    never red because of an external service, but the call is still exercised
-    wherever the network allows it (e.g. locally).
+    Downloads the short clip for real and asserts a non-empty audio file. Runs on
+    every push (not skipped) so the acquisition path is genuinely verified.
     """
     import youtube_helper as yth
 
     mp3 = tmp_path / "talk.mp3"
-    try:
-        yth.download_audio(_URL, str(mp3), target_sample_rate=16000)
-    except Exception as exc:  # noqa: BLE001 — any failure here is environmental
-        pytest.skip(f"YouTube unreachable in this environment: {exc}")
+    yth.download_audio(_URL, str(mp3), target_sample_rate=16000)
     assert mp3.exists() and mp3.stat().st_size > 10_000, "downloaded audio is empty/too small"
 
 
 @pytest.mark.slow
 def test_quick_example(tmp_path: Path) -> None:
-    """README "Quick example": download video + audio and read video dimensions.
-
-    Network-gated like the acquisition test above.
-    """
+    """README "Quick example": download video + audio and read video dimensions."""
     import audio_helper as ah
     import video_helper as vh
     import youtube_helper as yth
 
     mp4 = tmp_path / "bunny.mp4"
     mp3 = tmp_path / "bunny.mp3"
-    try:
-        yth.download_video(_URL, str(mp4))
-        yth.download_audio(_URL, str(mp3))
-    except Exception as exc:  # noqa: BLE001 — environmental
-        pytest.skip(f"YouTube unreachable in this environment: {exc}")
+    yth.download_video(_URL, str(mp4))
+    yth.download_audio(_URL, str(mp3))
 
     # load_audio just needs to decode without error; the example prints dimensions.
     ah.load_audio(str(mp3))
