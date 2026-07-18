@@ -75,6 +75,18 @@ all = [
     "sftp-helper>=2.2.3",
     "md2star>=2.4.1",
 ]
+# 🧪 Test — runs the end-to-end example tests (tests/test_examples.py) that prove
+# the README/site snippets actually execute. Install alongside `[all]` (the suite
+# the examples import); wired into the CI `examples` job.
+test = [
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "slow: end-to-end example test that hits the network (YouTube) or is otherwise heavy; skips cleanly when the external service is unreachable",
+]
 
 [project.urls]
 Homepage = "https://harchaoui.org/warith/ai-helpers"

@@ -48,3 +48,39 @@ jobs:
           import vocal_helper, speaker_helper
           print('all 10 helpers importable')
           "
+
+  # ────────────────────────────────────────────────────────────────────
+  # Examples end-to-end — prove the README / site snippets actually run,
+  # not just import. Installs the full toolchain (ffmpeg + pandoc +
+  # LibreOffice) and the suite, then runs tests/test_examples.py:
+  #   * the deterministic "Composed example" core (audio → transcript →
+  #     docx/pdf) runs FOR REAL on a committed speech clip;
+  #   * the YouTube acquisition tests are `slow` and SKIP cleanly when the
+  #     external service is unreachable, so a flaky third party never turns
+  #     the build red.
+  # ────────────────────────────────────────────────────────────────────
+  examples:
+    name: examples end-to-end (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: System deps (ffmpeg + pandoc + LibreOffice)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg pandoc libreoffice-writer
+
+      - name: Install the full suite + pytest
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[all,test]"
+
+      - name: Run the example tests (composed example runs for real)
+        run: python -m pytest tests/test_examples.py -v

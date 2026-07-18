@@ -131,18 +131,18 @@ each stage a different helper:
 **🌐 youtube-helper → 🗣️ vocal-helper → 📄 md2star (`md2docx` / `md2pdf`)**
 
 ```python
-import youtube_helper as yth                    # 🌐 acquisition
-import audio_helper as ah                        # 🔊 decode to PCM
-from vocal_helper.asr import transcribe_pcm      # 🗣️ speech-to-text (Whisper)
+import youtube_helper as yth      # 🌐 acquisition
+import audio_helper as ah          # 🔊 decode to PCM
+import vocal_helper as voh         # 🗣️ speech-to-text (Whisper)
 
 URL = "https://www.youtube.com/watch?v=YE7VzlLtp-4"
 
 # 1) Acquire — pull the talk's audio (16 kHz mono is ideal for ASR).
 yth.download_audio(URL, "talk.mp3", target_sample_rate=16000)
 
-# 2) Transcribe — Whisper on the decoded PCM samples.
-pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True)
-transcript = transcribe_pcm(pcm, sr, language="en")
+# 2) Transcribe — Whisper on the decoded PCM (to_numpy=True → float32 array).
+pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True, to_numpy=True)
+transcript = voh.transcribe_pcm(pcm, sr, language="en")
 
 # 3) Hand off to md2star — write a titled Markdown file for typesetting.
 with open("talk.md", "w", encoding="utf-8") as fh:

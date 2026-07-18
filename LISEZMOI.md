@@ -131,18 +131,18 @@ reconnaissance vocale et mise en page, chaque étape par un helper différent :
 **🌐 youtube-helper → 🗣️ vocal-helper → 📄 md2star (`md2docx` / `md2pdf`)**
 
 ```python
-import youtube_helper as yth                    # 🌐 acquisition
-import audio_helper as ah                        # 🔊 décodage en PCM
-from vocal_helper.asr import transcribe_pcm      # 🗣️ reconnaissance vocale (Whisper)
+import youtube_helper as yth      # 🌐 acquisition
+import audio_helper as ah          # 🔊 décodage en PCM
+import vocal_helper as voh         # 🗣️ reconnaissance vocale (Whisper)
 
 URL = "https://www.youtube.com/watch?v=YE7VzlLtp-4"
 
 # 1) Acquérir — récupérer l'audio de la conférence (16 kHz mono, idéal pour l'ASR).
 yth.download_audio(URL, "talk.mp3", target_sample_rate=16000)
 
-# 2) Transcrire — Whisper sur les échantillons PCM décodés.
-pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True)
-transcript = transcribe_pcm(pcm, sr, language="fr")
+# 2) Transcrire — Whisper sur le PCM décodé (to_numpy=True → tableau float32).
+pcm, sr = ah.load_audio("talk.mp3", target_sample_rate=16000, to_mono=True, to_numpy=True)
+transcript = voh.transcribe_pcm(pcm, sr, language="fr")
 
 # 3) Passer la main à md2star — écrire un fichier Markdown titré pour la mise en page.
 with open("talk.md", "w", encoding="utf-8") as fh:
