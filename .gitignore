@@ -39,3 +39,13 @@ nomoreclaude.sh
 
 # local-only tooling & secrets
 .pypirc
+
+# yt-dlp cookie files (youtube-helper writes timestamped *_ytdlp_cookie.txt on download)
+*_ytdlp_cookie.txt
+
+# example-run artifacts (from README/tests examples)
+talk.mp3
+talk.docx
+talk.pdf
+bunny.mp3
+bunny.mp4
