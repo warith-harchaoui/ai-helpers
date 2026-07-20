@@ -2,7 +2,7 @@
 
 [🇫🇷](https://github.com/warith-harchaoui/ai-helpers/blob/main/LISEZMOI.md) · [🇬🇧](https://github.com/warith-harchaoui/ai-helpers/blob/main/README.md)
 
-[![CI](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml) [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/warith-harchaoui/ai-helpers/blob/main/LICENSE) [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue.svg)](#)
+[![CI](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml/badge.svg)](https://github.com/warith-harchaoui/ai-helpers/actions/workflows/ci.yml) [![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/warith-harchaoui/ai-helpers/blob/main/LICENSE) [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.13-blue.svg)](#) [![Local-first](https://img.shields.io/badge/privacy-local--first-2f6f5e.svg)](#la-promesse)
 
 Méta-paquet qui installe l'intégralité de la suite **AI Helpers** en une seule commande — une collection de bibliothèques Python ciblées pour le travail IA / média.
 
@@ -19,7 +19,7 @@ Les helpers sont organisés en **groupes** — installez seulement le coin dont 
 | 🔊 Audio & voix | [vocal-helper](https://github.com/warith-harchaoui/vocal-helper) | `vocal_helper as voh` | PCM live → détection d'activité vocale → diarisation de locuteurs en ligne → transcription (Speech to Text) → résumé LLM optionnel. |
 | 🔊 Audio & voix | [speaker-helper](https://github.com/warith-harchaoui/speaker-helper) | `speaker_helper as spkh` | Synthèse vocale hors-ligne + en streaming sur un moteur local, avec clonage de voix — l'inverse de vocal-helper. |
 | 🎬 Vidéo & capture | [video-helper](https://github.com/warith-harchaoui/video-helper) | `video_helper as vh` | Extraction de frames multi-backend (VidGear / PyAV / ffmpeg-pipe), conversion, sous-titres. |
-| 🎬 Vidéo & capture | [capture-helper](https://github.com/warith-harchaoui/capture-helper) | `capture_helper as ch` | Couche capture / traitement / diffusion inspirée d'OBS (itérateurs caméra + micro live composant avec les contrats de video-helper / podcast-helper). |
+| 🎬 Vidéo & capture | [capture-helper](https://github.com/warith-harchaoui/capture-helper) | `capture_helper as ch` | Couche de capture multi-sources en direct — itérateurs caméra + micro (composant avec les contrats de video-helper / podcast-helper) plus un configurateur de scènes dans le navigateur. |
 | 🌐 Acquisition média | [youtube-helper](https://github.com/warith-harchaoui/youtube-helper) | `youtube_helper as yth` | Wrapper yt-dlp : téléchargements, catalogue / picker de flux, métadonnées d'engagement sans API. |
 | 🌐 Acquisition média | [podcast-helper](https://github.com/warith-harchaoui/podcast-helper) | `podcast_helper as ph` | Consommateur universel de flux audio : URL en entrée → PCM en sortie (RSS, yt-dlp, direct, …). |
 | 🗄️ Stockage & transfert | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 pour AWS S3 + S3-compatibles (MinIO / R2 / B2 / Spaces / Wasabi). |
@@ -28,6 +28,14 @@ Les helpers sont organisés en **groupes** — installez seulement le coin dont 
 | 🧪 WIP (non embarqué) | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Enregistreur de réunions diarisé, 100 % local et respectueux de la vie privée. **Travail en cours** — pas encore installé par le méta-paquet. |
 
 Les 11 paquets embarqués sont sous licence **BSD-3-Clause** (la même que scikit-learn / numpy / scipy) ; le WIP `notes-helper` est sous Apache-2.0.
+
+## La promesse
+
+**Local-first par conception.** Les AI Helpers traitent vos données sur *votre* machine avec des outils open source — pas de SaaS, pas de télémétrie, pas de compte, pas de verrouillage cloud. En toute honnêteté sur les limites :
+
+- **Garanti local** — os-helper, audio-helper, video-helper, capture-helper, vocal-helper et md2star tournent entièrement sur votre machine ; vos fichiers, audio, caméra/micro et documents n'en sortent jamais.
+- **Ne récupère que ce que vous demandez** — youtube-helper et podcast-helper doivent contacter les sites/flux que vous indiquez (impossible de télécharger une vidéo ou un épisode distant en local-first), mais n'envoient rien vous concernant et gardent tout en local. Quelques helpers téléchargent un modèle ou un gabarit une fois au premier lancement, puis fonctionnent hors ligne.
+- **Délibérément *pas* local-first** — bucket-helper et sftp-helper servent à envoyer vos données vers un stockage / serveur distant. La souveraineté ici, c'est *vous* qui choisissez le point de terminaison : votre propre MinIO / serveur SFTP est souverain ; un cloud tiers, c'est votre choix.
 
 ## Installation
 
@@ -62,13 +70,13 @@ pour tout d'un coup (délibérément lourd, presque trop) :
 
 ```bash
 # un groupe
-pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
+pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
 
 # plusieurs groupes à la fois
-pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
+pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
 
 # absolument tout
-pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.2.1"
+pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
 ```
 
 Extras disponibles : `audio`, `video`, `acquire`, `storage`, `documents`, `all`.
@@ -87,17 +95,17 @@ video / youtube / podcast / capture / vocal) :
 Cette release suit les helpers à ces tags :
 
 ```
-os-helper       @ v1.5.2
-audio-helper    @ v1.5.9
-video-helper    @ v1.6.5
-sftp-helper     @ v2.2.4
-youtube-helper  @ v1.3.9
-bucket-helper   @ v0.2.4
-podcast-helper  @ v0.3.6
-capture-helper  @ v0.2.4
-vocal-helper    @ v0.4.7
+os-helper       @ v1.7.2
+audio-helper    @ v1.6.0
+video-helper    @ v1.7.0
+sftp-helper     @ v2.3.0
+youtube-helper  @ v1.4.0
+bucket-helper   @ v0.3.0
+podcast-helper  @ v0.4.0
+capture-helper  @ v0.3.0
+vocal-helper    @ v0.6.0
 speaker-helper  @ v0.7.4
-md2star         @ v2.6.0
+md2star         @ v2.8.0
 ```
 
 Une release du méta-paquet suivra chaque release de helper. Si vous n'avez

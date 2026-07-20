@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-20
+
+### Changed
+- Pinned-versions table and install snippets bumped to the current suite release:
+  os-helper 1.7.2, audio-helper 1.6.0, video-helper 1.7.0, capture-helper 0.3.0,
+  bucket-helper 0.3.0, sftp-helper 2.3.0, youtube-helper 1.4.0, podcast-helper 0.4.0,
+  vocal-helper 0.6.0, md2star 2.8.0 (speaker-helper 0.7.4 unchanged).
+- This release tracks a suite-wide upgrade: every helper now ships consistent
+  surfaces — CLI (argparse + click), FastAPI API, MCP, and (where it earns its
+  place) a minimal browser GUI at `/gui` — plus an installable Claude Code +
+  OpenCode agent skill, a `TRIGGERS.md`, and (for the local-first helpers) an
+  honest "The Promise" section stating exactly what stays on your machine.
+
 ## [0.2.1] - 2026-07-14
 
 ### Added
