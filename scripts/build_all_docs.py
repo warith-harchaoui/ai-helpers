@@ -141,6 +141,9 @@ HELPERS: list[Helper] = [
     Helper("md2star", "md2star", "md2star", "Notes & Docs",
            "Markdown → DOCX/PPTX/PDF bridge on Pandoc, with curated styling, "
            "Mermaid rendering and bibliography support."),
+    Helper("wallet-helper", "wallet_helper", "Wallet Helper", "Cache",
+           "Never run the same heavy call twice: persistent, content-addressed "
+           "memoization + single-flight. A toolbox, close in spirit to os-helper."),
     Helper("notes-helper", "notes_helper", "Notes Helper", "Notes & Docs",
            "Turn recordings into structured notes: transcription, diarization and LLM "
            "synthesis into Markdown / DOCX / vault outputs.", src_layout=True),

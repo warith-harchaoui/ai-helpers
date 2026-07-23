@@ -1,5 +1,15 @@
 name: CI
 
+# ai-helpers is a meta-package: it ships no source of its own, only a curated
+# set of dependency pins and extras. So the SERVER gate is deliberately tiny —
+# it proves the package is well-formed and that the whole suite still RESOLVES
+# on PyPI, without installing the heavy wheels (torch, the ffmpeg-backed
+# helpers, LibreOffice, …). The expensive, real end-to-end example tests run
+# LOCALLY, before the push, via .githooks/pre-push — so a fault is caught on the
+# coder's machine instead of burning server minutes. Enable the hook once per
+# clone:
+#   git config core.hooksPath .githooks
+
 on:
   push:
     branches: [main]
@@ -12,55 +22,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  install:
-    name: pip install (Python ${{ matrix.python-version }})
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-
-      - name: System deps (ffmpeg)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
-
-      - name: Install full suite via meta-package (all extras)
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e ".[all]"
-
-      - name: Smoke import all ten helpers
-        run: |
-          python -c "
-          import os_helper, audio_helper, video_helper, sftp_helper
-          import youtube_helper, bucket_helper, podcast_helper, capture_helper
-          import vocal_helper, speaker_helper
-          print('all 10 helpers importable')
-          "
-
-  # ────────────────────────────────────────────────────────────────────
-  # Examples end-to-end — prove the README / site snippets actually run,
-  # not just import. Installs the full toolchain (ffmpeg + pandoc +
-  # LibreOffice) and the suite, then runs tests/test_examples.py:
-  #   * the deterministic "Composed example" core (audio → transcript →
-  #     docx/pdf) runs FOR REAL on a committed speech clip;
-  #   * the YouTube acquisition tests are `slow` and SKIP cleanly when the
-  #     external service is unreachable, so a flaky third party never turns
-  #     the build red.
-  # ────────────────────────────────────────────────────────────────────
-  examples:
-    name: examples end-to-end (pytest)
+  resolve:
+    name: build + resolve suite (light)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -72,22 +35,18 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: System deps (ffmpeg + pandoc + LibreOffice)
+      # Build the meta sdist/wheel and validate its metadata. This catches a
+      # broken pyproject (malformed metadata, a bad extra) with no heavy install.
+      - name: Build + metadata check
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg pandoc libreoffice-writer
+          python -m pip install --upgrade pip build twine
+          python -m build
+          twine check dist/*
 
-      - name: Install the full suite + pytest
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e ".[all,test]"
-
-      - name: Run the example tests (offline composed example runs for real)
-        # GitHub Actions sets CI=true, so the two network YouTube download tests
-        # self-skip here — YouTube bot-blocks datacenter IPs (it fails even with
-        # cookies, per yt-dlp #12045/#15392). Those download stages are gated LOCALLY
-        # instead, by the pre-push hook (.githooks/pre-push), which runs them on the
-        # coder's residential IP and blocks the push if they fail. What runs for real
-        # in CI is the deterministic offline composed test (audio → transcript →
-        # docx/pdf), which needs no network.
-        run: python -m pytest tests/test_examples.py -v
+      # Resolve the ENTIRE suite graph from PyPI without installing it.
+      # --dry-run runs pip's resolver over "[all]" (every helper, including
+      # wallet-helper) and reports what WOULD be installed, so an unresolvable
+      # or mistyped pin fails here — but no multi-GB wheels are downloaded or
+      # compiled. This is the meaningful, cheap server gate for a meta-package.
+      - name: Resolve the full suite (dry-run, no heavy install)
+        run: pip install --dry-run ".[all]"

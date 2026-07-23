@@ -25,15 +25,16 @@ The helpers are organized into **groups** — install just the corner you need (
 | 🗄️ Storage & transfer | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 for AWS S3 + S3-compatible (MinIO / R2 / B2 / Spaces / Wasabi). |
 | 🗄️ Storage & transfer | [sftp-helper](https://github.com/warith-harchaoui/sftp-helper) | `sftp_helper as sftph` | Paramiko-based SFTP with strict host-key verification + `remote_tempfile`. |
 | 📄 Documents | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Markdown → DOCX / PPTX / PDF bridge on Pandoc, with curated styling, Mermaid rendering and bibliography support. |
+| ♻️ Cache | [wallet-helper](https://github.com/warith-harchaoui/wallet-helper) | `wallet_helper as wh` | Never run the same heavy call twice: persistent, content-addressed memoization + single-flight. A toolbox, close in spirit to os-helper. |
 | 🧪 WIP (not bundled) | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Fully-local, privacy-first diarized meeting recorder. **Work in progress** — not installed by the meta-package yet. |
 
-The 11 bundled packages are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
+The 12 bundled packages are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
 
 ## The Promise
 
 **Local-first by design.** The AI Helpers process your data on *your* machine with open-source tooling — no SaaS, no telemetry, no account, no cloud lock-in. Being honest about exactly where that holds:
 
-- **Guaranteed local** — os-helper, audio-helper, video-helper, capture-helper, vocal-helper and md2star run entirely on your machine; your files, audio, camera/mic and documents never leave it.
+- **Guaranteed local** — os-helper, audio-helper, video-helper, capture-helper, vocal-helper, md2star and wallet-helper run entirely on your machine; your files, audio, camera/mic, documents and cached results never leave it.
 - **Fetches only what you ask for** — youtube-helper and podcast-helper must contact the sites/feeds you point them at (there is no local-first way to download a remote video or episode), but they upload nothing about you and keep everything local. A few helpers download a model or template once on first run, then work offline.
 - **Deliberately *not* local-first** — bucket-helper and sftp-helper exist to move your data to remote storage / servers. Sovereignty there means *you* choose the endpoint: your own MinIO / SFTP box is sovereign; a third-party cloud is your call.
 
@@ -59,6 +60,9 @@ pip install bucket-helper sftp-helper
 # 📄 Documents
 pip install md2star
 
+# ♻️ Cache (never run the same heavy call twice)
+pip install wallet-helper
+
 # 🧱 Core only (foundation utilities)
 pip install os-helper
 ```
@@ -70,16 +74,16 @@ almost too much):
 
 ```bash
 # one group
-pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
+pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
 
 # several groups at once
-pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
+pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
 
 # absolutely everything
-pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.3.0"
+pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
 ```
 
-Available extras: `audio`, `video`, `acquire`, `storage`, `documents`, `all`.
+Available extras: `audio`, `video`, `acquire`, `storage`, `documents`, `cache`, `all`.
 
 You still need `ffmpeg` on PATH for the media helpers (audio / video /
 youtube / podcast / capture / vocal):
@@ -106,6 +110,7 @@ capture-helper  @ v0.3.0
 vocal-helper    @ v0.6.0
 speaker-helper  @ v0.7.4
 md2star         @ v2.8.0
+wallet-helper   @ v0.2.2
 ```
 
 A meta-package release will follow each helper release. If you only need

@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-23
+
+### Added
+- `wallet-helper` (`wallet_helper as wh`) joins the suite — never run the same
+  heavy call twice: persistent, content-addressed memoization plus single-flight
+  (concurrent identical calls collapse into one), across process restarts and,
+  optionally, across processes. A small toolbox, close in spirit to os-helper.
+  Installable via the new `cache` extra (`pip install "ai-helpers[cache]"`) and
+  bundled in `[all]`. BSD-3-Clause, like the other bundled packages.
+
+### Changed
+- Pinned-versions table and install snippets track `wallet-helper 0.2.2`; git
+  install refs bumped to `@v0.4.0`. The suite now bundles 12 packages.
+- **CI made deliberately light.** As a meta-package with no source of its own,
+  the server gate no longer installs the full suite or the media toolchain
+  (ffmpeg + pandoc + LibreOffice). It now only builds the package, `twine
+  check`s it, and `pip install --dry-run ".[all]"` to prove the whole suite
+  graph still resolves on PyPI. The heavy, real end-to-end example tests moved
+  fully local, to the `.githooks/pre-push` gate — catching faults on the coder's
+  machine instead of on shared runners.
+
 ## [0.3.0] - 2026-07-20
 
 ### Changed
