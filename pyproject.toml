@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-helpers"
-version = "0.4.0"
+version = "0.5.0"
 description = "AI Helpers — meta-package that installs the full suite of Python helpers for AI/media work: os-helper, audio-helper, video-helper, sftp-helper, youtube-helper, bucket-helper, podcast-helper, capture-helper, vocal-helper, speaker-helper, md2star, wallet-helper."
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
@@ -57,14 +57,13 @@ storage = [
     "bucket-helper>=0.2.3",
     "sftp-helper>=2.2.3",
 ]
-# 📄 Documents — Markdown → DOCX/PPTX/PDF bridge on Pandoc.
-documents = [
+# 🧩 Misc — document conversion (md2star → DOCX/PPTX/PDF on Pandoc), caching
+# (wallet-helper: content-addressed memoization + single-flight) and positioning
+# maps (standpoint: a comparison table → a labelled 2D map + written analysis).
+misc = [
     "md2star>=2.4.1",
-]
-# ♻️ Cache — never run the same heavy call twice: persistent, content-addressed
-# memoization + single-flight (a toolbox, close in spirit to os-helper).
-cache = [
     "wallet-helper>=0.2.2",
+    "standpoint>=0.2.0",
 ]
 # 🧰 Everything — the kitchen sink. Deliberately heavy: only reach for this
 # if you really want the whole suite in one environment.
@@ -80,6 +79,7 @@ all = [
     "sftp-helper>=2.2.3",
     "md2star>=2.4.1",
     "wallet-helper>=0.2.2",
+    "standpoint>=0.2.0",
 ]
 # 🧪 Test — runs the end-to-end example tests (tests/test_examples.py) that prove
 # the README/site snippets actually execute. Install alongside `[all]` (the suite

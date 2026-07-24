@@ -24,11 +24,12 @@ The helpers are organized into **groups** — install just the corner you need (
 | 🌐 Media acquisition | [podcast-helper](https://github.com/warith-harchaoui/podcast-helper) | `podcast_helper as ph` | Universal audio stream consumer: URL-in → PCM-out (RSS, yt-dlp, direct, …). |
 | 🗄️ Storage & transfer | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 for AWS S3 + S3-compatible (MinIO / R2 / B2 / Spaces / Wasabi). |
 | 🗄️ Storage & transfer | [sftp-helper](https://github.com/warith-harchaoui/sftp-helper) | `sftp_helper as sftph` | Paramiko-based SFTP with strict host-key verification + `remote_tempfile`. |
-| 📄 Documents | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Markdown → DOCX / PPTX / PDF bridge on Pandoc, with curated styling, Mermaid rendering and bibliography support. |
-| ♻️ Cache | [wallet-helper](https://github.com/warith-harchaoui/wallet-helper) | `wallet_helper as wh` | Never run the same heavy call twice: persistent, content-addressed memoization + single-flight. A toolbox, close in spirit to os-helper. |
-| 🧪 WIP (not bundled) | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Fully-local, privacy-first diarized meeting recorder. **Work in progress** — not installed by the meta-package yet. |
+| 🧩 Misc | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Markdown → DOCX / PPTX / PDF bridge on Pandoc, with curated styling, Mermaid rendering and bibliography support. |
+| 🧩 Misc | [wallet-helper](https://github.com/warith-harchaoui/wallet-helper) | `wallet_helper as wh` | Never run the same heavy call twice: persistent, content-addressed memoization + single-flight. A toolbox, close in spirit to os-helper. |
+| 🧩 Misc | [standingpoint](https://github.com/warith-harchaoui/standingpoint) | `standpoint as sp` | Turn a comparison table into a labelled 2D positioning map, a written analysis and a YAML of coordinates — PCA perceptual maps, one command. |
+| 🧩 Misc | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Fully-local, privacy-first diarized meeting recorder. **Work in progress** — not installed by the meta-package yet. |
 
-The 12 bundled packages are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
+The 13 bundled packages are licensed under **BSD-3-Clause** (same as scikit-learn / numpy / scipy); the WIP `notes-helper` is Apache-2.0.
 
 ## The Promise
 
@@ -57,11 +58,8 @@ pip install youtube-helper podcast-helper
 # 🗄️ Storage & transfer
 pip install bucket-helper sftp-helper
 
-# 📄 Documents
-pip install md2star
-
-# ♻️ Cache (never run the same heavy call twice)
-pip install wallet-helper
+# 🧩 Misc (docs, cache, positioning maps)
+pip install md2star wallet-helper standpoint
 
 # 🧱 Core only (foundation utilities)
 pip install os-helper
@@ -74,16 +72,16 @@ almost too much):
 
 ```bash
 # one group
-pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 
 # several groups at once
-pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 
 # absolutely everything
-pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 ```
 
-Available extras: `audio`, `video`, `acquire`, `storage`, `documents`, `cache`, `all`.
+Available extras: `audio`, `video`, `acquire`, `storage`, `misc`, `all`.
 
 You still need `ffmpeg` on PATH for the media helpers (audio / video /
 youtube / podcast / capture / vocal):
@@ -111,6 +109,7 @@ vocal-helper    @ v0.6.0
 speaker-helper  @ v0.7.4
 md2star         @ v2.8.0
 wallet-helper   @ v0.2.2
+standingpoint   @ v0.2.0
 ```
 
 A meta-package release will follow each helper release. If you only need

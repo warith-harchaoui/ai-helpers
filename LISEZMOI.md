@@ -24,11 +24,12 @@ Les helpers sont organisés en **groupes** — installez seulement le coin dont 
 | 🌐 Acquisition média | [podcast-helper](https://github.com/warith-harchaoui/podcast-helper) | `podcast_helper as ph` | Consommateur universel de flux audio : URL en entrée → PCM en sortie (RSS, yt-dlp, direct, …). |
 | 🗄️ Stockage & transfert | [bucket-helper](https://github.com/warith-harchaoui/bucket-helper) | `bucket_helper as bh` | boto3 pour AWS S3 + S3-compatibles (MinIO / R2 / B2 / Spaces / Wasabi). |
 | 🗄️ Stockage & transfert | [sftp-helper](https://github.com/warith-harchaoui/sftp-helper) | `sftp_helper as sftph` | SFTP via paramiko avec vérification stricte des clés d'hôte + `remote_tempfile`. |
-| 📄 Documents | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Passerelle Markdown → DOCX / PPTX / PDF sur Pandoc, avec styling soigné, rendu Mermaid et support bibliographique. |
-| ♻️ Cache | [wallet-helper](https://github.com/warith-harchaoui/wallet-helper) | `wallet_helper as wh` | Ne jamais relancer deux fois le même appel coûteux : mémoïsation persistante, adressée par contenu + single-flight. Une boîte à outils, proche d'os-helper dans l'esprit. |
-| 🧪 WIP (non embarqué) | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Enregistreur de réunions diarisé, 100 % local et respectueux de la vie privée. **Travail en cours** — pas encore installé par le méta-paquet. |
+| 🧩 Divers | [md2star](https://github.com/warith-harchaoui/md2star) | `md2star` | Passerelle Markdown → DOCX / PPTX / PDF sur Pandoc, avec styling soigné, rendu Mermaid et support bibliographique. |
+| 🧩 Divers | [wallet-helper](https://github.com/warith-harchaoui/wallet-helper) | `wallet_helper as wh` | Ne jamais relancer deux fois le même appel coûteux : mémoïsation persistante, adressée par contenu + single-flight. Une boîte à outils, proche d'os-helper dans l'esprit. |
+| 🧩 Divers | [standingpoint](https://github.com/warith-harchaoui/standingpoint) | `standpoint as sp` | Transforme un tableau de comparaison en une carte de positionnement 2D étiquetée, une analyse rédigée et un YAML de coordonnées — cartes perceptuelles ACP, en une commande. |
+| 🧩 Divers | [notes-helper](https://github.com/warith-harchaoui/notes-helper) | `notes_helper` | Enregistreur de réunions diarisé, 100 % local et respectueux de la vie privée. **Travail en cours** — pas encore installé par le méta-paquet. |
 
-Les 12 paquets embarqués sont sous licence **BSD-3-Clause** (la même que scikit-learn / numpy / scipy) ; le WIP `notes-helper` est sous Apache-2.0.
+Les 13 paquets embarqués sont sous licence **BSD-3-Clause** (la même que scikit-learn / numpy / scipy) ; le WIP `notes-helper` est sous Apache-2.0.
 
 ## La promesse
 
@@ -57,11 +58,8 @@ pip install youtube-helper podcast-helper
 # 🗄️ Stockage & transfert
 pip install bucket-helper sftp-helper
 
-# 📄 Documents
-pip install md2star
-
-# ♻️ Cache (ne jamais relancer deux fois le même appel coûteux)
-pip install wallet-helper
+# 🧩 Divers (docs, cache, cartes de positionnement)
+pip install md2star wallet-helper standpoint
 
 # 🧱 Cœur seul (utilitaires de fondation)
 pip install os-helper
@@ -74,16 +72,16 @@ pour tout d'un coup (délibérément lourd, presque trop) :
 
 ```bash
 # un groupe
-pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[audio] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 
 # plusieurs groupes à la fois
-pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[audio,video] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 
 # absolument tout
-pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.4.0"
+pip install "ai-helpers[all] @ git+https://github.com/warith-harchaoui/ai-helpers.git@v0.5.0"
 ```
 
-Extras disponibles : `audio`, `video`, `acquire`, `storage`, `documents`, `cache`, `all`.
+Extras disponibles : `audio`, `video`, `acquire`, `storage`, `misc`, `all`.
 
 Il vous faut toujours `ffmpeg` dans le PATH pour les helpers média (audio /
 video / youtube / podcast / capture / vocal) :
@@ -111,6 +109,7 @@ vocal-helper    @ v0.6.0
 speaker-helper  @ v0.7.4
 md2star         @ v2.8.0
 wallet-helper   @ v0.2.2
+standingpoint   @ v0.2.0
 ```
 
 Une release du méta-paquet suivra chaque release de helper. Si vous n'avez

@@ -58,7 +58,7 @@ MOCKS: list[str] = [
     "feedparser", "podcastparser", "yt_dlp", "boto3", "botocore", "paramiko",
     "fastapi", "uvicorn", "fastapi_mcp", "starlette", "deepeval", "giskard",
     "ollama", "demucs", "librosa", "soundfile", "transformers",
-    "huggingface_hub", "click",
+    "huggingface_hub", "click", "vl_convert", "langdetect",
 ]
 
 
@@ -138,13 +138,16 @@ HELPERS: list[Helper] = [
            "S3-compatible object storage: upload, download, mirror and stage-and-share patterns."),
     Helper("sftp-helper", "sftp_helper", "SFTP Helper", "Storage & Transfer",
            "SFTP: upload, download, mirror."),
-    Helper("md2star", "md2star", "md2star", "Notes & Docs",
+    Helper("md2star", "md2star", "md2star", "Misc",
            "Markdown → DOCX/PPTX/PDF bridge on Pandoc, with curated styling, "
            "Mermaid rendering and bibliography support."),
-    Helper("wallet-helper", "wallet_helper", "Wallet Helper", "Cache",
+    Helper("wallet-helper", "wallet_helper", "Wallet Helper", "Misc",
            "Never run the same heavy call twice: persistent, content-addressed "
            "memoization + single-flight. A toolbox, close in spirit to os-helper."),
-    Helper("notes-helper", "notes_helper", "Notes Helper", "Notes & Docs",
+    Helper("standingpoint", "standpoint", "Standpoint", "Misc",
+           "Turn a comparison table into a labelled 2D positioning map, a written "
+           "analysis and a YAML of coordinates — PCA perceptual maps, one command."),
+    Helper("notes-helper", "notes_helper", "Notes Helper", "Misc",
            "Turn recordings into structured notes: transcription, diarization and LLM "
            "synthesis into Markdown / DOCX / vault outputs.", src_layout=True),
 ]
