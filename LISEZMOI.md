@@ -108,7 +108,7 @@ capture-helper  @ v0.3.0
 vocal-helper    @ v0.6.0
 speaker-helper  @ v0.7.4
 md2star         @ v2.8.0
-wallet-helper   @ v0.2.2
+wallet-helper   @ v0.3.0
 standingpoint   @ v0.2.0
 ```
 
