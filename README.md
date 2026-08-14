@@ -17,7 +17,7 @@ Every helper is its own package on **PyPI**, so you install only the corner you 
 | 🎬 Video & capture | `video-helper` · `capture-helper` |
 | 🌐 Media acquisition | `youtube-helper` · `podcast-helper` |
 | 🗄️ Storage & transfer | `bucket-helper` · `sftp-helper` |
-| 🧩 Misc | `md2star` · `wallet-helper` · `standpoint` · `best-engine-ai-helper` · `ann-router` |
+| 🧩 Misc | `md2star` · `wallet-helper` · `standpoint` · `best-engine-ai-helper` · `ann-router` · `elbow-helper` |
 
 ```bash
 pip install audio-helper vocal-helper   # install a group
