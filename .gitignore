@@ -46,3 +46,8 @@ bunny.mp4
 # Build / test residue (this public repo only ships README + LICENSE)
 .ruff_cache/
 *cookie*.txt
+
+crates.yaml
+
+# /brag video output (generated, not shipped by this repo)
+brag-output/
