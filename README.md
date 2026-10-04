@@ -2,7 +2,7 @@
 
 **A suite of local-first Python libraries for AI and media work** — one clear job each, the same shape everywhere.
 
-## 🌍 [harchaoui.org/warith/ai-helpers](https://harchaoui.org/warith/ai-helpers/)
+## 🌍 [deraison.ai/ai-helpers](https://deraison.ai/ai-helpers/)
 
 **The website is the home of the suite** — overview, documentation, and a positioning map for every helper. Start there.
 
