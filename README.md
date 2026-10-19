@@ -13,7 +13,7 @@ Every helper is its own package on **PyPI**, so you install only the corner you 
 | Group | Helpers |
 |---|---|
 | 🧱 Core | `os-helper` |
-| 🔊 Audio & voice | `audio-helper` · `vocal-helper` |
+| 🔊 Audio & voice | `audio-helper` · `vocal-helper` · `speaker-helper` · `discussion-helper` |
 | 🎬 Video & capture | `video-helper` · `capture-helper` |
 | 🌐 Media acquisition | `youtube-helper` · `podcast-helper` |
 | 🗄️ Storage & transfer | `bucket-helper` · `sftp-helper` |
