@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1218 580" width="1218" height="580" role="img" aria-labelledby="suite-title suite-desc" font-family="Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title id="suite-title">How the AI Helpers suite fits together: sixteen helpers with one job each, on one shared foundation</title>
+  <desc id="suite-desc">A layered plate. On top, sixteen helpers grouped by the job they do: audio and voice (audio-helper, vocal-helper, speaker-helper, discussion-helper); video and capture (video-helper, capture-helper); media acquisition (youtube-helper, podcast-helper); storage and transfer (bucket-helper, sftp-helper); and a miscellaneous group (md2star, wallet-helper, standpoint, best-engine-ai-helper, ann-router, elbow-helper). Underneath them all, os-helper: the foundation every other member imports, which is why installing any helper pulls it in. At the bottom, the four surfaces every member exposes in the same shape: a Python API, a click CLI, a FastAPI server with its MCP tools mounted on that same app, and an agent skill. The caption records that each helper is its own package on PyPI and that the work happens on your machine.</desc>
+  <style>
+    .panel      { fill: #ffffff; stroke: #d6d6d6; stroke-width: 1.5; }
+    .panel-label{ fill: #6b6b6b; font-size: 13px; font-weight: 600; letter-spacing: .08em; }
+    .stage      { fill: #FFF4E0; stroke: #FF9500; stroke-width: 1.5; }
+    .core       { fill: #007AFF; stroke: #0062CC; stroke-width: 1.5; }
+    .surface    { fill: #EAF3FF; stroke: #007AFF; stroke-width: 1.5; }
+    .n-title    { font-size: 15px; font-weight: 600; fill: #111111; }
+    .on-dark    { fill: #ffffff; font-size: 15px; font-weight: 600; }
+    .on-dark-sub{ fill: #d8e8ff; font-size: 12px; }
+    .tie        { fill: none; stroke: #007AFF; stroke-width: 1.5; }
+    .caption    { font-size: 12.5px; fill: #5a5a5a; font-style: italic; }
+    .surf-label { font-size: 13px; font-weight: 600; fill: #0062CC; }
+    .pkg        { font-size: 12.5px; fill: #5a5a5a;
+                  font-family: 'Roboto Mono', ui-monospace, monospace; }
+    .count      { font-size: 11px; font-weight: 700; fill: #B26A00;
+                  font-family: 'Roboto Mono', ui-monospace, monospace; }
+
+    @media (prefers-color-scheme: dark) {
+      .panel      { fill: #1b1b1d; stroke: #3a3a3d; }
+      .panel-label{ fill: #a0a0a6; }
+      .stage      { fill: #3a2d12; stroke: #FF9500; }
+      .surface    { fill: #10243d; stroke: #4da2ff; }
+      .n-title    { fill: #f2f2f4; }
+      .tie        { stroke: #4da2ff; }
+      .caption    { fill: #a0a0a6; }
+      .surf-label { fill: #4da2ff; }
+      .pkg        { fill: #b4b4ba; }
+      .count      { fill: #FFCC00; }
+    }
+  </style>
+
+  <rect class="panel" x="28" y="54" width="1162" height="276" rx="12"/>
+  <text class="panel-label" x="48" y="78">SIXTEEN HELPERS, ONE JOB EACH</text>
+
+  <rect class="stage" x="48" y="96" width="430" height="96" rx="10"/>
+  <text class="count" x="59" y="112">4</text>
+  <text class="n-title" x="263" y="128" text-anchor="middle">Audio &amp; voice</text>
+  <text class="pkg" x="263" y="152" text-anchor="middle">audio-helper · vocal-helper</text>
+  <text class="pkg" x="263" y="172" text-anchor="middle">speaker-helper · discussion-helper</text>
+
+  <rect class="stage" x="494" y="96" width="290" height="96" rx="10"/>
+  <text class="count" x="505" y="112">2</text>
+  <text class="n-title" x="639" y="128" text-anchor="middle">Video &amp; capture</text>
+  <text class="pkg" x="639" y="152" text-anchor="middle">video-helper</text>
+  <text class="pkg" x="639" y="172" text-anchor="middle">capture-helper</text>
+
+  <rect class="stage" x="800" y="96" width="370" height="96" rx="10"/>
+  <text class="count" x="811" y="112">2</text>
+  <text class="n-title" x="985" y="128" text-anchor="middle">Media acquisition</text>
+  <text class="pkg" x="985" y="152" text-anchor="middle">youtube-helper</text>
+  <text class="pkg" x="985" y="172" text-anchor="middle">podcast-helper</text>
+
+  <rect class="stage" x="48" y="212" width="330" height="96" rx="10"/>
+  <text class="count" x="59" y="228">2</text>
+  <text class="n-title" x="213" y="244" text-anchor="middle">Storage &amp; transfer</text>
+  <text class="pkg" x="213" y="268" text-anchor="middle">bucket-helper</text>
+  <text class="pkg" x="213" y="288" text-anchor="middle">sftp-helper</text>
+
+  <rect class="stage" x="394" y="212" width="776" height="96" rx="10"/>
+  <text class="count" x="405" y="228">6</text>
+  <text class="n-title" x="782" y="244" text-anchor="middle">Everything else, one job each</text>
+  <text class="pkg" x="782" y="268" text-anchor="middle">md2star · wallet-helper · standpoint</text>
+  <text class="pkg" x="782" y="288" text-anchor="middle">best-engine-ai-helper · ann-router · elbow-helper</text>
+
+  <rect class="core" x="349" y="364" width="520" height="58" rx="10"/>
+  <text class="on-dark" x="609" y="388" text-anchor="middle">os-helper</text>
+  <text class="on-dark-sub" x="609" y="408" text-anchor="middle">the foundation every other member imports — install any helper and it comes too</text>
+
+  <path class="tie" d="M609 422 V446 H345 V470"/>
+  <path class="tie" d="M609 446 H873 V470"/>
+  <path class="tie" d="M521 446 V470"/>
+  <path class="tie" d="M697 446 V470"/>
+
+  <rect class="surface" x="270" y="470" width="150" height="46" rx="9"/>
+  <text class="surf-label" x="345" y="498" text-anchor="middle">Python API</text>
+  <rect class="surface" x="446" y="470" width="150" height="46" rx="9"/>
+  <text class="surf-label" x="521" y="498" text-anchor="middle">CLI (click)</text>
+  <rect class="surface" x="622" y="470" width="150" height="46" rx="9"/>
+  <text class="surf-label" x="697" y="498" text-anchor="middle">FastAPI + MCP</text>
+  <rect class="surface" x="798" y="470" width="150" height="46" rx="9"/>
+  <text class="surf-label" x="873" y="498" text-anchor="middle">agent skill</text>
+
+  <text class="caption" x="609" y="552" text-anchor="middle">Each helper is its own package on PyPI, so you install only the corner you need — and the work happens on your machine, not on someone's server.</text>
+</svg>

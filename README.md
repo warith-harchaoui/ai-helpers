@@ -8,6 +8,10 @@
 
 ---
 
+## How it works
+
+![How the AI Helpers suite fits together: sixteen helpers with one job each, on one shared foundation](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.png)
+
 Every helper is its own package on **PyPI**, so you install only the corner you need (each pulls in `os-helper` automatically):
 
 | Group | Helpers |
