@@ -92,7 +92,7 @@ would notice.
 
 | Crate | Mirrors | Its own promise | Where its speed comes from |
 |---|---|---|---|
-| [`vocal-helper-rs`](https://github.com/warith-harchaoui/vocal-helper-rs) | `vocal-helper` | Streaming speaker diarization through an ONNX graph, no Python and no torch | **The real accelerator story.** ONNX Runtime execution providers — CUDA/TensorRT on NVIDIA, CoreML on Apple, DirectML on Windows, NNAPI on Android, QNN on Qualcomm, OpenVINO on Intel, plain CPU when CPU wins — chosen by **measuring on the device**, verdict kept per graph digest |
+| [`vocal-helper-rs`](https://github.com/warith-harchaoui/vocal-helper-rs) | `vocal-helper` | Streaming speaker diarization and Nemotron transcription through ONNX graphs (`onnx` feature), no Python and no torch | **The real accelerator story, half written.** The graph runs through ONNX Runtime, on its default CPU provider for now; a 1-minute meeting clip diarizes at a real-time factor of 0.40 on CPU, within 1.9e-6 of the Python twin. The provider policy — CUDA/TensorRT, CoreML, DirectML, NNAPI, QNN, OpenVINO or plain CPU, chosen by **measuring on the device** — exists as code but is not yet wired to the sessions |
 | [`capture-helper-rs`](https://github.com/warith-harchaoui/capture-helper-rs) | `capture-helper` | A live microphone into a stream of PCM packets, no service in the loop | The OS's own audio stack through `cpal`: CoreAudio, WASAPI, ALSA/PulseAudio/JACK/PipeWire — no PortAudio, no `ffmpeg`, nothing extra to install |
 | [`audio-helper-rs`](https://github.com/warith-harchaoui/audio-helper-rs) | `audio-helper` | File-level audio utilities on top of `ffmpeg`/`ffprobe` | Whatever hardware codecs the local `ffmpeg` carries (VideoToolbox, NVDEC, Quick Sync), plus a pure-Rust WAV path (`hound`) needing no `ffmpeg` at all |
 | [`podcast-helper-rs`](https://github.com/warith-harchaoui/podcast-helper-rs) | `podcast-helper` | URL in, PCM out — any audio source to the stream a speech model expects | Same inherited `ffmpeg` codecs, same `ffmpeg`-free WAV path |
@@ -105,12 +105,12 @@ factor of **1.257**, slower than real time, against **0.528** for CPU alone: it 
 nodes and splits them into **316 partitions**, so every streaming step pays that many crossings
 between two engines. Forcing eight threads on an eight-performance-core machine was wrong the same
 way (0.953 against 0.528). A hardcoded provider order is wrong *somewhere*, which is why
-`vocal-helper-rs` tries on the device and keeps the verdict.
+`vocal-helper` tries on the device and keeps the verdict, and why `vocal-helper-rs` will do the same
+rather than ship a fixed order.
 
-Five are on [crates.io](https://crates.io/search?q=helper-rs) — `cargo add` whichever corner you
-need. `vocal-helper-rs` has its repository open but is not published yet: the ONNX Runtime binding,
-the part that drives the graph, is still being written, and a crate that cannot run the model would
-be a promise rather than a tool.
+All six are on [crates.io](https://crates.io/search?q=helper-rs) — `cargo add` whichever corner
+you need. `vocal-helper-rs` arrived last (0.1.0): it runs the model end to end, though the graphs
+weigh hundreds of megabytes and stay outside the crate: you pass their path.
 
 Every repo carries a root `TRIGGERS.md` — the exhaustive catalogue of what should, and should not, reach for that helper — mirrored into `skills/<helper>/references/triggers.md`. A `scripts/check_triggers.py` gate keeps each skill's `description` naming every capability and carrying an explicit SKIP clause, inside the 1024-character cap the Agent Skills standard sets, and the test suite fails when the two drift apart.
 
