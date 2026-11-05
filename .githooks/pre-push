@@ -1,0 +1,9 @@
+#!/bin/sh
+# Pre-push gate: the landing repository has one test, the guard against a
+# path naming a machine or an account. One-time setup per clone:
+#   git config core.hooksPath .githooks
+PY="$(command -v python3 || command -v python)"
+if ! "$PY" -m pytest -q tests; then
+  echo "pre-push: tests failed - push aborted."
+  exit 1
+fi
