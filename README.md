@@ -92,10 +92,10 @@ would notice.
 
 | Crate | Mirrors | Its own promise | Where its speed comes from |
 |---|---|---|---|
-| [`vocal-helper-rs`](https://github.com/warith-harchaoui/vocal-helper-rs) | `vocal-helper` | Streaming speaker diarization and Nemotron transcription through ONNX graphs (`onnx` feature), no Python and no torch | **The real accelerator story, half written.** The graph runs through ONNX Runtime, on its default CPU provider for now, with probabilities within 1.9e-6 of the Python twin. The provider policy — CUDA/TensorRT, CoreML, DirectML, NNAPI, QNN, OpenVINO or plain CPU, chosen by **measuring on the device** — exists as code but is not yet wired to the sessions |
+| [`vocal-helper-rs`](https://github.com/warith-harchaoui/vocal-helper-rs) | `vocal-helper` | Streaming speaker diarization (Nemotron 3) and transcription (Nemotron 3.5) through their ONNX graphs (`onnx` feature), no Python and no torch | **The real accelerator story.** Since 0.2.0 each session picks its ONNX Runtime execution provider: the caller's choice, else `VOCAL_HELPER_PROVIDER`, else a **measurement on the device** kept under the graph's digest, with a fallback down to the CPU. Features `cuda`, `tensorrt`, `coreml`, `directml`, `openvino`; the NVIDIA path needs CUDA 13 and cuDNN 9. CI builds `cuda,tensorrt` on Ubuntu and proves the CPU fallback, but no NVIDIA GPU has run it yet. Diarization probabilities within 1.9e-6 of the Python twin |
 | [`capture-helper-rs`](https://github.com/warith-harchaoui/capture-helper-rs) | `capture-helper` | A live microphone into a stream of PCM packets, no service in the loop | The OS's own audio stack through `cpal`: CoreAudio, WASAPI, ALSA/PulseAudio/JACK/PipeWire — no PortAudio, no `ffmpeg`, nothing extra to install |
-| [`audio-helper-rs`](https://github.com/warith-harchaoui/audio-helper-rs) | `audio-helper` | File-level audio utilities on top of `ffmpeg`/`ffprobe` | Whatever hardware codecs the local `ffmpeg` carries (VideoToolbox, NVDEC, Quick Sync), plus a pure-Rust WAV path (`hound`) needing no `ffmpeg` at all |
-| [`podcast-helper-rs`](https://github.com/warith-harchaoui/podcast-helper-rs) | `podcast-helper` | URL in, PCM out — any audio source to the stream a speech model expects | Same inherited `ffmpeg` codecs, same `ffmpeg`-free WAV path |
+| [`audio-helper-rs`](https://github.com/warith-harchaoui/audio-helper-rs) | `audio-helper` | File-level audio utilities on top of `ffmpeg`/`ffprobe` | The encoder of a compressed output is chosen on the machine, by trial on the real rate and channels; a platform encoder must do the same work in under two-thirds of the time to displace the preferred one, and on Apple Silicon AudioToolbox did not. A GPU build of `ffmpeg` changes nothing: NVENC, NVDEC, VAAPI and QSV handle pictures, not audio |
+| [`podcast-helper-rs`](https://github.com/warith-harchaoui/podcast-helper-rs) | `podcast-helper` | URL in, PCM out — any audio source to the stream a speech model expects | Decoding is already the fast path: measured on Apple Silicon, AudioToolbox decoders are slower than `ffmpeg`'s own, and the video stream of a source is never decoded. `--decoder` or `PODCAST_HELPER_DECODER` overrides the default |
 | [`youtube-helper-rs`](https://github.com/warith-harchaoui/youtube-helper-rs) | `youtube-helper` | One consistent Rust interface around invoking `yt-dlp` | No arithmetic of its own: it drives `yt-dlp` and waits on the network. The gain is the static binary and the typed interface, not speed |
 | [`md2star-rs`](https://github.com/warith-harchaoui/md2star-rs) | `md2star` | Markdown → DOCX & PPTX, pure Rust: no Pandoc, no subprocess, single static binaries | Writing XML into a zip needs no accelerator. Its hardware story is the *absence* of prerequisites — it runs where the Python original cannot be installed |
 
@@ -105,12 +105,15 @@ factor of **1.257**, slower than real time, against **0.528** for CPU alone: it 
 nodes and splits them into **316 partitions**, so every streaming step pays that many crossings
 between two engines. Forcing eight threads on an eight-performance-core machine was wrong the same
 way (0.953 against 0.528). A hardcoded provider order is wrong *somewhere*, which is why
-`vocal-helper` tries on the device and keeps the verdict, and why `vocal-helper-rs` will do the same
-rather than ship a fixed order.
+`vocal-helper` tries on the device and keeps the verdict, and why `vocal-helper-rs` now does the
+same: the first open of the diarization graph on an M2 Max found the CPU ahead again (0.74 against
+1.12 for CoreML), while on the transcription graph the two were level (0.084 against 0.086).
 
 All six are on [crates.io](https://crates.io/search?q=helper-rs) — `cargo add` whichever corner
-you need. `vocal-helper-rs` arrived last (0.1.0): it runs the model end to end, though the graphs
-weigh hundreds of megabytes and stay outside the crate: you pass their path.
+you need. `vocal-helper-rs` arrived last and is at 0.2.0: it runs both models end to end, though
+the graphs weigh hundreds of megabytes and stay outside the crate: you pass their path. Speed is
+not its argument, as said above: on the CPU of an M2 Max its transcription runs at a real-time
+factor of 0.05, against 0.022 to 0.028 for the Python twin.
 
 Every repo carries a root `TRIGGERS.md` — the exhaustive catalogue of what should, and should not, reach for that helper — mirrored into `skills/<helper>/references/triggers.md`. A `scripts/check_triggers.py` gate keeps each skill's `description` naming every capability and carrying an explicit SKIP clause, inside the 1024-character cap the Agent Skills standard sets, and the test suite fails when the two drift apart.
 
