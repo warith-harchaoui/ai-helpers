@@ -119,7 +119,7 @@ Vocal et Speaker savent aussi appeler quelques moteurs hébergés payants (Gladi
 
 ## Les réécritures en Rust
 
-Six briques existent aussi en Rust. Chacune est une réécriture indépendante, publiée sur [crates.io](https://crates.io/users/warith-harchaoui), l'index des paquets Rust (les *crates*) :
+Six briques existent aussi en Rust. Chacune est une réécriture indépendante, publiée sur [crates.io](https://crates.io/users/warith-harchaoui), l'index des paquets Rust, que les développeurs appellent des *crates* :
 
 ```bash
 cargo add audio-helper-rs capture-helper-rs podcast-helper-rs youtube-helper-rs
@@ -127,7 +127,7 @@ cargo add vocal-helper-rs --features onnx
 cargo install md2star-rs   # md2star-rs, md2docx, md2pptx : sans Pandoc ni Python
 ```
 
-| Paquet Rust | Ce qu'il fait |
+| *Crate* | Ce qu'elle fait |
 |---|---|
 | [`vocal-helper-rs`](https://github.com/warith-harchaoui/vocal-helper-rs) | Attribue la parole et la transcrit au fil de l'eau. Les modèles s'exécutent dans ONNX Runtime ; l'accélérateur (CUDA, TensorRT, CoreML, DirectML, OpenVINO ou le simple processeur) se choisit d'après une mesure faite sur l'appareil |
 | [`capture-helper-rs`](https://github.com/warith-harchaoui/capture-helper-rs) | Livre le son du micro en direct, par la pile audio propre au système |
@@ -138,7 +138,7 @@ cargo install md2star-rs   # md2star-rs, md2docx, md2pptx : sans Pandoc ni Pytho
 
 **Pourquoi Rust ?** Pour atteindre les appareils où Python ne s'installe pas. Un téléphone ne fournit pas d'interpréteur Python. Les paquets Python précompilés (*wheels*) se fabriquent une plateforme à la fois. `torch` pèse à lui seul plusieurs gigaoctets. Rust, lui, compile depuis le même code pour macOS, Linux, Windows, iOS et Android. Il produit un seul fichier, qui tourne sans rien installer d'autre.
 
-**Et la vitesse ?** Rust y gagne rarement. Nous l'avons mesuré avant que quiconque se fasse des idées : dans la diarisation de vocal-helper (l'étape qui attribue chaque passage à un locuteur), 99,8 % du temps passe dans ONNX Runtime. Rust appelle cette bibliothèque exactement comme Python ; une réécriture gagne donc 0,2 % au mieux. Sur le processeur d'un M2 Max, vocal-helper-rs transcrit même plus lentement que son jumeau Python : il lui faut 0,05 seconde par seconde d'audio, contre 0,022 à 0,028 pour Python. Chaque paquet Rust est comparé au Python qu'il reprend ; vocal-helper-rs retrouve les probabilités de diarisation de Python à 1,9e-6 près.
+**Et la vitesse ?** Rust y gagne rarement. Nous l'avons mesuré avant que quiconque se fasse des idées : dans la diarisation de vocal-helper (l'étape qui attribue chaque passage à un locuteur), 99,8 % du temps passe dans ONNX Runtime. Rust appelle cette bibliothèque exactement comme Python ; une réécriture gagne donc 0,2 % au mieux. Sur le processeur d'un M2 Max, vocal-helper-rs transcrit même plus lentement que son jumeau Python : il lui faut 0,05 seconde par seconde d'audio, contre 0,022 à 0,028 pour Python. Chaque *crate* est comparée au Python qu'elle reprend ; vocal-helper-rs retrouve les probabilités de diarisation de Python à 1,9e-6 près.
 
 Le site raconte l'histoire complète, accélérateur par accélérateur : [la section Rust](https://deraison.ai/ai-helpers/index.fr.php#rust).
 
@@ -148,4 +148,4 @@ Le site raconte l'histoire complète, accélérateur par accélérateur : [la se
 
 ## Licence
 
-La suite est sous licence BSD-3-Clause, celle de numpy et de scikit-learn. Vous lisez le code, vous le modifiez, vous l'intégrez à un produit que vous vendez. Le texte complet se trouve dans [LICENSE](LICENSE).
+La suite est sous licence BSD-3-Clause, celle de numpy et de scikit-learn. Vous lisez le code, vous le *forkez* (vous en tirez votre propre copie pour la faire évoluer), vous l'intégrez à un produit que vous vendez. Le texte complet se trouve dans [LICENSE](LICENSE).
