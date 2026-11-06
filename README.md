@@ -9,7 +9,7 @@
 
 🌍 **Website, documentation and FAQ: [deraison.ai/ai-helpers](https://deraison.ai/ai-helpers/)**
 
-⭐ **If the suite saves you an afternoon, star this repository.** It costs one click and subscribes you to nothing. It also tells the next developer who lands here that the detour is worth it. A helper that served you well takes a star on its own repository too.
+⭐ **If the suite saves you an afternoon, star this repository.** One click, no newsletter in return. It tells the next developer who lands here that the detour is worth it. Did one helper save your afternoon? Its own repository deserves a star too.
 
 ---
 
