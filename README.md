@@ -1,5 +1,7 @@
 # AI Helpers
 
+[🇫🇷](https://github.com/warith-harchaoui/ai-helpers/blob/main/LISEZMOI.md) · [🇬🇧](https://github.com/warith-harchaoui/ai-helpers/blob/main/README.md)
+
 [![GitHub stars](https://img.shields.io/github/stars/warith-harchaoui/ai-helpers?style=social)](https://github.com/warith-harchaoui/ai-helpers)
 [![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
 [![17 packages on PyPI](https://img.shields.io/badge/PyPI-17%20packages-3775A9?logo=pypi&logoColor=white)](https://pypi.org/user/warith-harchaoui/)
@@ -9,7 +11,7 @@
 
 🌍 **Website, documentation and FAQ: [deraison.ai/ai-helpers](https://deraison.ai/ai-helpers/)**
 
-⭐ **If the suite saves you an afternoon, star this repository.** One click, no newsletter in return. It tells the next developer who lands here that the detour is worth it. Did one helper save your afternoon? Its own repository deserves a star too.
+⭐ **If the suite has earned a place in your toolbox, star this repository.** One click, no newsletter in return. It tells the next developer who lands here that the detour is worth it. Did one helper save your afternoon? Its own repository deserves a star too.
 
 ---
 
