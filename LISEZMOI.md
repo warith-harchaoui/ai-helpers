@@ -7,7 +7,7 @@
 [![17 paquets sur PyPI](https://img.shields.io/badge/PyPI-17%20paquets-3775A9?logo=pypi&logoColor=white)](https://pypi.org/user/warith-harchaoui/)
 [![6 paquets Rust sur crates.io](https://img.shields.io/badge/crates.io-6%20paquets-orange?logo=rust)](https://crates.io/users/warith-harchaoui)
 
-**AI Helpers réunit dix-huit bibliothèques Python. Chacune fait un seul travail d'intelligence artificielle ou de traitement des médias, sur votre propre machine.** L'une transcrit une réunion et dit qui a parlé quand. Une autre lit un texte à voix haute. Une troisième change un fichier Markdown en document Word. Vous n'ouvrez aucun compte. Rien ne part vers nos serveurs ; aucune mesure d'usage ne remonte chez nous. Six de ces bibliothèques existent aussi en Rust : elles tournent sur les téléphones et les petits boîtiers que Python n'atteint pas.
+**AI Helpers réunit dix-sept bibliothèques Python. Chacune fait un seul travail d'intelligence artificielle ou de traitement des médias, sur votre propre machine.** L'une transcrit une réunion et dit qui a parlé quand. Une autre lit un texte à voix haute. Une troisième change un fichier Markdown en document Word. Vous n'ouvrez aucun compte. Rien ne part vers nos serveurs ; aucune mesure d'usage ne remonte chez nous. Six de ces bibliothèques existent aussi en Rust : elles tournent sur les téléphones et les petits boîtiers que Python n'atteint pas.
 
 🌍 **Le site, la documentation et les questions fréquentes : [deraison.ai/ai-helpers](https://deraison.ai/ai-helpers/index.fr.php)**
 
@@ -34,13 +34,12 @@
 | placer des concurrents sur une carte de positionnement à partir d'un tableau comparatif | [`standpoint`](https://github.com/warith-harchaoui/standpoint) |
 | savoir quel modèle de langue ou de vision tourne sur cette machine, puis l'installer | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) |
 | choisir le moteur de recherche vectorielle qui convient à vos données, raisons à l'appui | [`ann-router`](https://github.com/warith-harchaoui/ann-router) |
-| interroger un corpus privé depuis votre site, en PHP seul, sans le publier | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) |
 | trouver le coude d'une courbe ou apprendre qu'elle n'en a pas | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) |
 | manipuler fichiers, processus, empreintes, configuration et chronomètres sous macOS, Linux ou Windows | [`os-helper`](https://github.com/warith-harchaoui/os-helper) |
 
 ## Démarrage rapide
 
-Chaque brique se publie à part sur PyPI, l'index des paquets Python, sauf la plus récente, `web-search-helper`, qui s'installe pour l'instant depuis GitHub. Vous installez celle qui vous sert ; `os-helper`, le socle commun, arrive avec elle.
+Chaque brique se publie à part sur PyPI, l'index des paquets Python. Vous installez celle qui vous sert ; `os-helper`, le socle commun, arrive avec elle.
 
 ```bash
 pip install youtube-helper audio-helper vocal-helper md2star
@@ -70,7 +69,7 @@ md2docx talk.md   # talk.docx
 md2pdf  talk.md   # talk.pdf
 ```
 
-## Les dix-huit briques
+## Les dix-sept briques
 
 | Groupe | Brique | Son travail | Liens |
 |---|---|---|---|
@@ -90,14 +89,13 @@ md2pdf  talk.md   # talk.pdf
 | 🧩 Divers | [`standpoint`](https://github.com/warith-harchaoui/standpoint) | Reçoit un tableau comparatif, rend une carte de positionnement avec toutes ses coordonnées | [PyPI](https://pypi.org/project/standpoint/) · [Doc](https://deraison.ai/ai-helpers/docs/standpoint-doc/modules.html) |
 | | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) | Trouve le meilleur modèle local pour cette machine, le télécharge puis le met à l'épreuve | [PyPI](https://pypi.org/project/best-engine-ai-helper/) · [Doc](https://deraison.ai/ai-helpers/docs/best-engine-ai-helper-doc/modules.html) |
 | | [`ann-router`](https://github.com/warith-harchaoui/ann-router) | Désigne le bon moteur de recherche des plus proches voisins et écrit pourquoi | [PyPI](https://pypi.org/project/ann-router/) · [Doc](https://deraison.ai/ai-helpers/docs/ann-router-doc/modules.html) |
-| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Interroge un corpus privé depuis un site, en PHP seul : des extraits qui répondent, ou un refus honnête | [GitHub](https://github.com/warith-harchaoui/web-search-helper) (PyPI bientôt) |
 | | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) | Rend un coude avec sa marge d'incertitude ; s'abstient, en le disant, quand il n'y en a pas | [PyPI](https://pypi.org/project/elbow-helper/) · [Doc](https://deraison.ai/ai-helpers/docs/elbow-helper-doc/modules.html) |
 
 ## Une même forme pour toutes
 
 ![Comment ça marche : seize briques AI Helpers à un travail chacune, sur un socle commun](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.fr.png)
 
-Qui sait conduire une brique sait conduire les dix-sept autres. Chacune se commande de cinq façons :
+Qui sait conduire une brique sait conduire les seize autres. Chacune se commande de cinq façons :
 
 - depuis **Python**, en l'important comme une bibliothèque ;
 - depuis le **terminal**, par une commande écrite avec click (seul os-helper, le socle, n'en a pas) ;
@@ -107,7 +105,7 @@ Qui sait conduire une brique sait conduire les dix-sept autres. Chacune se comma
 
 Quand un résultat gagne à être vérifié à l'œil, la brique ajoute une petite **interface web à `/gui`**. Elle tourne sur le même serveur, sans étape de construction ni appel extérieur.
 
-Treize briques sur dix-huit fournissent aussi un Dockerfile et un `docker-compose.yml`. Ce dernier démarre en plus le service dont la brique a besoin : MinIO pour Bucket, un serveur SFTP jetable pour SFTP, Ollama pour Standpoint et Best Engine, Qdrant et pgvector pour ANN Router.
+Treize briques sur dix-sept fournissent aussi un Dockerfile et un `docker-compose.yml`. Ce dernier démarre en plus le service dont la brique a besoin : MinIO pour Bucket, un serveur SFTP jetable pour SFTP, Ollama pour Standpoint et Best Engine, Qdrant et pgvector pour ANN Router.
 
 Chaque dépôt contient enfin un `TRIGGERS.md`. Ce fichier dresse la liste des situations où un agent appelle la brique, puis de celles où il la laisse tranquille. La compétence d'agent en garde une copie ; un test échoue dès que les deux copies divergent. Votre agent apprend ainsi quand appeler la brique ; il apprend aussi à ne pas transcrire un tableur.
 
@@ -116,7 +114,6 @@ Chaque dépôt contient enfin un `TRIGGERS.md`. Ce fichier dresse la liste des s
 - **Neuf briques tournent entièrement sur votre machine :** os, audio, video, capture, vocal, speaker, discussion, md2star et wallet. Quelques-unes téléchargent une fois un modèle ou un gabarit, puis travaillent hors ligne.
 - **Deux briques contactent seulement ce que vous désignez :** youtube-helper et podcast-helper interrogent les sites et les flux que vous nommez. Elles n'envoient aucune information sur vous.
 - **Deux briques envoient vos fichiers ailleurs, puisque c'est leur métier :** bucket-helper et sftp-helper les déposent sur le stockage ou le serveur que vous avez choisi. C'est vous qui fixez la destination.
-- **Une brique travaille sur votre machine, puis chez votre hébergeur :** web-search-helper indexe chez vous et répond depuis votre propre hébergement PHP ; le navigateur du visiteur télécharge une fois l'encodeur de phrases depuis un CDN.
 
 Vocal et Speaker savent aussi appeler quelques moteurs hébergés payants (Gladia, ElevenLabs, pyannoteAI). Elles n'en sollicitent un que si vous le nommez avec sa clé d'accès. Le choix automatique du moteur ne les retient jamais.
 
