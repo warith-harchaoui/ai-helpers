@@ -7,7 +7,7 @@
 [![17 packages on PyPI](https://img.shields.io/badge/PyPI-17%20packages-3775A9?logo=pypi&logoColor=white)](https://pypi.org/user/warith-harchaoui/)
 [![6 crates on crates.io](https://img.shields.io/badge/crates.io-6%20crates-orange?logo=rust)](https://crates.io/users/warith-harchaoui)
 
-**Seventeen Python libraries that each do one AI or media job, on your own machine.** Transcribe a meeting with who said what, read a text aloud, download a talk, turn Markdown into a Word document, pick the local model that fits your laptop. No account, no telemetry, no server of ours in the loop. Six of the seventeen also exist in Rust, for the phones and small boxes Python does not reach.
+**Eighteen Python libraries that each do one AI or media job, on your own machine.** Transcribe a meeting with who said what, read a text aloud, download a talk, turn Markdown into a Word document, pick the local model that fits your laptop. No account, no telemetry, no server of ours in the loop. Six of the eighteen also exist in Rust, for the phones and small boxes Python does not reach.
 
 🌍 **Website, documentation and FAQ: [deraison.ai/ai-helpers](https://deraison.ai/ai-helpers/)**
 
@@ -34,12 +34,13 @@
 | place competitors on a positioning map from a comparison table | [`standpoint`](https://github.com/warith-harchaoui/standpoint) |
 | find which local LLM or vision model fits this machine | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) |
 | choose a vector-search backend from measured criteria | [`ann-router`](https://github.com/warith-harchaoui/ann-router) |
+| search a private corpus from your website, PHP only, without publishing it, and answer in the visitor's browser | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) |
 | find the elbow of a curve or hear that there is none | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) |
 | handle files, processes, hashing, config and timers on any OS | [`os-helper`](https://github.com/warith-harchaoui/os-helper) |
 
 ## Quick start
 
-Every helper is its own package on PyPI. Install the one you need; it brings `os-helper`, the shared foundation, along with it.
+Every helper is its own package on PyPI, except the newest, `web-search-helper`, installed from GitHub for now. Install the one you need; it brings `os-helper`, the shared foundation, along with it.
 
 ```bash
 pip install youtube-helper audio-helper vocal-helper md2star
@@ -69,7 +70,7 @@ md2docx talk.md   # talk.docx
 md2pdf  talk.md   # talk.pdf
 ```
 
-## The seventeen helpers
+## The eighteen helpers
 
 | Group | Helper | Its one job | Links |
 |---|---|---|---|
@@ -89,13 +90,14 @@ md2pdf  talk.md   # talk.pdf
 | 🧩 Misc | [`standpoint`](https://github.com/warith-harchaoui/standpoint) | A comparison table in, a positioning map and its coordinates out | [PyPI](https://pypi.org/project/standpoint/) · [Docs](https://deraison.ai/ai-helpers/docs/standpoint-doc/modules.html) |
 | | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) | The best local model for this machine, pulled and checked | [PyPI](https://pypi.org/project/best-engine-ai-helper/) · [Docs](https://deraison.ai/ai-helpers/docs/best-engine-ai-helper-doc/modules.html) |
 | | [`ann-router`](https://github.com/warith-harchaoui/ann-router) | The right nearest-neighbour backend, with the reasons written out | [PyPI](https://pypi.org/project/ann-router/) · [Docs](https://deraison.ai/ai-helpers/docs/ann-router-doc/modules.html) |
+| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Search a private corpus from a website with PHP only: excerpts that answer or an honest refusal, and a written answer by an LLM in the visitor's browser | [GitHub](https://github.com/warith-harchaoui/web-search-helper) (PyPI soon) |
 | | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) | A knee with its uncertainty or an explicit abstention | [PyPI](https://pypi.org/project/elbow-helper/) · [Docs](https://deraison.ai/ai-helpers/docs/elbow-helper-doc/modules.html) |
 
 ## The same shape everywhere
 
 ![How the AI Helpers suite fits together: sixteen helpers with one job each, on one shared foundation](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.png)
 
-Learn one helper and you know how to drive the other sixteen. Each one exposes:
+Learn one helper and you know how to drive the other seventeen. Each one exposes:
 
 - a **Python API**;
 - a **command line** built with click (os-helper, the foundation, ships none);
@@ -104,7 +106,7 @@ Learn one helper and you know how to drive the other sixteen. Each one exposes:
 - an installable **agent skill** for Claude Code or OpenCode;
 - where auditing the output in a browser helps, a small **GUI at `/gui`**, with no build step and no external call.
 
-Thirteen of the seventeen also ship a Dockerfile with a `docker-compose.yml` that brings the companion they need: MinIO for Bucket, a throwaway SFTP server for SFTP, Ollama for Standpoint and Best Engine, Qdrant and pgvector for ANN Router.
+Thirteen of the eighteen also ship a Dockerfile with a `docker-compose.yml` that brings the companion they need: MinIO for Bucket, a throwaway SFTP server for SFTP, Ollama for Standpoint and Best Engine, Qdrant and pgvector for ANN Router.
 
 Each repository carries a `TRIGGERS.md`: the full list of what should reach for that helper and what should leave it alone. It is mirrored into the skill; a test fails the moment the two copies disagree. Your agent learns when to call the helper; it also learns not to transcribe a spreadsheet.
 
@@ -113,6 +115,7 @@ Each repository carries a `TRIGGERS.md`: the full list of what should reach for 
 - **Entirely on your machine:** os, audio, video, capture, vocal, speaker, discussion, md2star and wallet. A few of them download a model or a template once, then work offline.
 - **Only what you ask for:** youtube-helper and podcast-helper contact the sites and feeds you name. They upload nothing about you.
 - **Remote by design:** bucket-helper and sftp-helper send your files to the storage you choose. That is their job; the endpoint is yours, never a hidden default.
+- **Your machine, then your host:** web-search-helper indexes on your machine and answers from your own PHP hosting; the visitor's browser fetches the sentence encoder once, from a CDN, and, on request, the language model best-engine-ai-helper plans for that machine and line.
 
 Vocal and Speaker also know a few paid hosted engines (Gladia, ElevenLabs, pyannoteAI). They call one only when you name it and supply its key; the automatic routing never picks them.
 
