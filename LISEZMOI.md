@@ -46,7 +46,7 @@ Chaque brique se publie à part sur PyPI, l'index des paquets Python. Vous insta
 pip install youtube-helper audio-helper vocal-helper md2star
 ```
 
-Les briques demandent Python 3.10 à 3.13. Celles qui traitent le son ou l'image appellent `ffmpeg`, à installer d'abord (`brew install ffmpeg` sur macOS). md2star appelle aussi Pandoc, le convertisseur de documents.
+Les briques demandent Python 3.10 ou plus récent. Celles qui traitent le son ou l'image appellent `ffmpeg`, à installer d'abord (`brew install ffmpeg` sur macOS). md2star appelle aussi Pandoc, le convertisseur de documents.
 
 L'exemple suivant enchaîne quatre briques pour faire d'une conférence YouTube un document Word et un PDF.
 

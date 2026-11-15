@@ -46,7 +46,7 @@ Every helper is its own package on PyPI. Install the one you need; it brings `os
 pip install youtube-helper audio-helper vocal-helper md2star
 ```
 
-You need Python 3.10 to 3.13. The media helpers call `ffmpeg`, so put it on your PATH first (`brew install ffmpeg` on macOS). md2star drives Pandoc.
+You need Python 3.10 or later. The media helpers call `ffmpeg`, so put it on your PATH first (`brew install ffmpeg` on macOS). md2star drives Pandoc.
 
 Four helpers, one chain: a YouTube talk becomes a Word document and a PDF.
 
