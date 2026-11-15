@@ -40,7 +40,7 @@
 
 ## Quick start
 
-Every helper is its own package on PyPI, except the newest, `web-search-helper`, installed from GitHub for now. Install the one you need; it brings `os-helper`, the shared foundation, along with it.
+Every helper is its own package on PyPI. Install the one you need; it brings `os-helper`, the shared foundation, along with it.
 
 ```bash
 pip install youtube-helper audio-helper vocal-helper md2star
@@ -90,7 +90,7 @@ md2pdf  talk.md   # talk.pdf
 | 🧩 Misc | [`standpoint`](https://github.com/warith-harchaoui/standpoint) | A comparison table in, a positioning map and its coordinates out | [PyPI](https://pypi.org/project/standpoint/) · [Docs](https://deraison.ai/ai-helpers/docs/standpoint-doc/modules.html) |
 | | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) | The best local model for this machine, pulled and checked | [PyPI](https://pypi.org/project/best-engine-ai-helper/) · [Docs](https://deraison.ai/ai-helpers/docs/best-engine-ai-helper-doc/modules.html) |
 | | [`ann-router`](https://github.com/warith-harchaoui/ann-router) | The right nearest-neighbour backend, with the reasons written out | [PyPI](https://pypi.org/project/ann-router/) · [Docs](https://deraison.ai/ai-helpers/docs/ann-router-doc/modules.html) |
-| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Search a private corpus from a website with PHP only: excerpts that answer or an honest refusal, and a written answer by an LLM in the visitor's browser | [GitHub](https://github.com/warith-harchaoui/web-search-helper) (PyPI soon) |
+| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Search a private corpus from a website with PHP only: excerpts that answer or an honest refusal, and a written answer by an LLM in the visitor's browser | [PyPI](https://pypi.org/project/web-search-helper/) |
 | | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) | A knee with its uncertainty or an explicit abstention | [PyPI](https://pypi.org/project/elbow-helper/) · [Docs](https://deraison.ai/ai-helpers/docs/elbow-helper-doc/modules.html) |
 
 ## The same shape everywhere

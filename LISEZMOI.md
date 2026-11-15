@@ -40,7 +40,7 @@
 
 ## Démarrage rapide
 
-Chaque brique se publie à part sur PyPI, l'index des paquets Python, sauf la plus récente, `web-search-helper`, qui s'installe pour l'instant depuis GitHub. Vous installez celle qui vous sert ; `os-helper`, le socle commun, arrive avec elle.
+Chaque brique se publie à part sur PyPI, l'index des paquets Python. Vous installez celle qui vous sert ; `os-helper`, le socle commun, arrive avec elle.
 
 ```bash
 pip install youtube-helper audio-helper vocal-helper md2star
@@ -90,7 +90,7 @@ md2pdf  talk.md   # talk.pdf
 | 🧩 Divers | [`standpoint`](https://github.com/warith-harchaoui/standpoint) | Reçoit un tableau comparatif, rend une carte de positionnement avec toutes ses coordonnées | [PyPI](https://pypi.org/project/standpoint/) · [Doc](https://deraison.ai/ai-helpers/docs/standpoint-doc/modules.html) |
 | | [`best-engine-ai-helper`](https://github.com/warith-harchaoui/best-engine-ai-helper) | Trouve le meilleur modèle local pour cette machine, le télécharge puis le met à l'épreuve | [PyPI](https://pypi.org/project/best-engine-ai-helper/) · [Doc](https://deraison.ai/ai-helpers/docs/best-engine-ai-helper-doc/modules.html) |
 | | [`ann-router`](https://github.com/warith-harchaoui/ann-router) | Désigne le bon moteur de recherche des plus proches voisins et écrit pourquoi | [PyPI](https://pypi.org/project/ann-router/) · [Doc](https://deraison.ai/ai-helpers/docs/ann-router-doc/modules.html) |
-| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Interroge un corpus privé depuis un site, en PHP seul : des extraits qui répondent ou un refus honnête, et une réponse rédigée par un LLM dans le navigateur du visiteur | [GitHub](https://github.com/warith-harchaoui/web-search-helper) (PyPI bientôt) |
+| | [`web-search-helper`](https://github.com/warith-harchaoui/web-search-helper) | Interroge un corpus privé depuis un site, en PHP seul : des extraits qui répondent ou un refus honnête, et une réponse rédigée par un LLM dans le navigateur du visiteur | [PyPI](https://pypi.org/project/web-search-helper/) |
 | | [`elbow-helper`](https://github.com/warith-harchaoui/elbow-helper) | Rend un coude avec sa marge d'incertitude ; s'abstient, en le disant, quand il n'y en a pas | [PyPI](https://pypi.org/project/elbow-helper/) · [Doc](https://deraison.ai/ai-helpers/docs/elbow-helper-doc/modules.html) |
 
 ## Une même forme pour toutes
