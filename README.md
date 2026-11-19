@@ -95,7 +95,7 @@ md2pdf  talk.md   # talk.pdf
 
 ## The same shape everywhere
 
-![How the AI Helpers suite fits together: sixteen helpers with one job each, on one shared foundation](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.png)
+![How the AI Helpers suite fits together: seventeen helpers with one job each, on one shared foundation](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.png)
 
 Learn one helper and you know how to drive the other seventeen. Each one exposes:
 

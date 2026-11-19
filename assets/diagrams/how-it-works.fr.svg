@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1218 580" width="1218" height="580" role="img" aria-labelledby="suite-title suite-desc" lang="fr" font-family="Roboto, 'Helvetica Neue', Arial, sans-serif">
-  <title id="suite-title">Comment ça marche : seize briques AI Helpers à un travail chacune, sur un socle commun</title>
-  <desc id="suite-desc">Une planche en trois étages. En haut, seize briques rangées selon leur travail : audio et voix (audio-helper, vocal-helper, speaker-helper, discussion-helper) ; vidéo et capture (video-helper, capture-helper) ; acquisition de médias (youtube-helper, podcast-helper) ; stockage et transfert (bucket-helper, sftp-helper) ; enfin un groupe divers (md2star, wallet-helper, standpoint, best-engine-ai-helper, ann-router, elbow-helper). Sous elles, os-helper : le socle que toutes les autres briques importent, ce qui explique qu'il arrive avec chacune. En bas, les quatre façons de commander chaque brique, identiques partout : une API Python, une ligne de commande écrite avec click, un serveur FastAPI qui monte aussi les outils MCP, une compétence d'agent. La légende rappelle que chaque brique est un paquet PyPI distinct et que le travail se fait sur votre machine.</desc>
+  <title id="suite-title">Comment ça marche : dix-sept briques AI Helpers à un travail chacune, sur un socle commun</title>
+  <desc id="suite-desc">Une planche en trois étages. En haut, dix-sept briques rangées selon leur travail : audio et voix (audio-helper, vocal-helper, speaker-helper, discussion-helper) ; vidéo et capture (video-helper, capture-helper) ; acquisition de médias (youtube-helper, podcast-helper) ; stockage et transfert (bucket-helper, sftp-helper) ; enfin un groupe divers (md2star, wallet-helper, standpoint, best-engine-ai-helper, ann-router, elbow-helper, web-search-helper). Sous elles, os-helper : le socle que toutes les autres briques importent, ce qui explique qu'il arrive avec chacune. En bas, les quatre façons de commander chaque brique, identiques partout : une API Python, une ligne de commande écrite avec click, un serveur FastAPI qui monte aussi les outils MCP, une compétence d'agent. La légende rappelle que chaque brique est un paquet PyPI distinct et que le travail se fait sur votre machine.</desc>
   <style>
     .panel      { fill: #ffffff; stroke: #d6d6d6; stroke-width: 1.5; }
     .panel-label{ fill: #6b6b6b; font-size: 13px; font-weight: 600; letter-spacing: .08em; }
@@ -33,7 +33,7 @@
   </style>
 
   <rect class="panel" x="28" y="54" width="1162" height="276" rx="12"/>
-  <text class="panel-label" x="48" y="78">SEIZE BRIQUES, UN TRAVAIL CHACUNE</text>
+  <text class="panel-label" x="48" y="78">DIX-SEPT BRIQUES, UN TRAVAIL CHACUNE</text>
 
   <rect class="stage" x="48" y="96" width="430" height="96" rx="10"/>
   <text class="count" x="59" y="112">4</text>
@@ -60,9 +60,9 @@
   <text class="pkg" x="213" y="288" text-anchor="middle">sftp-helper</text>
 
   <rect class="stage" x="394" y="212" width="776" height="96" rx="10"/>
-  <text class="count" x="405" y="228">6</text>
+  <text class="count" x="405" y="228">7</text>
   <text class="n-title" x="782" y="244" text-anchor="middle">Tout le reste, un travail chacune</text>
-  <text class="pkg" x="782" y="268" text-anchor="middle">md2star · wallet-helper · standpoint</text>
+  <text class="pkg" x="782" y="268" text-anchor="middle">md2star · wallet-helper · standpoint · web-search-helper</text>
   <text class="pkg" x="782" y="288" text-anchor="middle">best-engine-ai-helper · ann-router · elbow-helper</text>
 
   <rect class="core" x="349" y="364" width="520" height="58" rx="10"/>

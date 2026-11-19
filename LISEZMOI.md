@@ -95,7 +95,7 @@ md2pdf  talk.md   # talk.pdf
 
 ## Une même forme pour toutes
 
-![Comment ça marche : seize briques AI Helpers à un travail chacune, sur un socle commun](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.fr.png)
+![Comment ça marche : dix-sept briques AI Helpers à un travail chacune, sur un socle commun](https://raw.githubusercontent.com/warith-harchaoui/ai-helpers/main/assets/diagrams/how-it-works.fr.png)
 
 Qui sait conduire une brique sait conduire les dix-sept autres. Chacune se commande de cinq façons :
 
