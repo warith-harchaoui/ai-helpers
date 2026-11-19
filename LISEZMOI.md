@@ -20,10 +20,10 @@
 | Vous voulez… | La brique qui le fait |
 |---|---|
 | transcrire une réunion en sachant qui a dit quoi, en direct ou après coup | [`vocal-helper`](https://github.com/warith-harchaoui/vocal-helper) |
-| lire un texte à voix haute, prononcer une réponse au fur et à mesure qu'elle s'écrit, imiter une voix | [`speaker-helper`](https://github.com/warith-harchaoui/speaker-helper) |
+| lire un texte à voix haute, prononcer une réponse au fur et à mesure qu'elle s'écrit, imiter une voix, vérifier à l'oreille que les noms sortent justes | [`speaker-helper`](https://github.com/warith-harchaoui/speaker-helper) |
 | converser à voix haute avec un modèle local, quitte à lui couper la parole | [`discussion-helper`](https://github.com/warith-harchaoui/discussion-helper) |
 | charger, convertir, découper ou recoller un son ; isoler la voix de la musique | [`audio-helper`](https://github.com/warith-harchaoui/audio-helper) |
-| extraire les images ou les sous-titres d'une vidéo | [`video-helper`](https://github.com/warith-harchaoui/video-helper) |
+| extraire les images ou les sous-titres d'une vidéo, l'alléger sans perte de qualité visible | [`video-helper`](https://github.com/warith-harchaoui/video-helper) |
 | enregistrer la webcam ou le micro | [`capture-helper`](https://github.com/warith-harchaoui/capture-helper) |
 | télécharger une vidéo, sa bande son ou sa vignette depuis YouTube, Vimeo, SoundCloud… | [`youtube-helper`](https://github.com/warith-harchaoui/youtube-helper) |
 | écouter n'importe quel flux audio (un podcast, une radio, une adresse web) comme le ferait un modèle de parole | [`podcast-helper`](https://github.com/warith-harchaoui/podcast-helper) |

@@ -20,10 +20,10 @@
 | You want to… | Reach for |
 |---|---|
 | transcribe a meeting and know who said what, live or after the fact | [`vocal-helper`](https://github.com/warith-harchaoui/vocal-helper) |
-| read a text aloud, stream a reply or clone a voice | [`speaker-helper`](https://github.com/warith-harchaoui/speaker-helper) |
+| read a text aloud, stream a reply, clone a voice, and check by ear that the names come out right | [`speaker-helper`](https://github.com/warith-harchaoui/speaker-helper) |
 | talk to a local model out loud and interrupt it mid-sentence | [`discussion-helper`](https://github.com/warith-harchaoui/discussion-helper) |
 | load, convert, cut, join or separate audio | [`audio-helper`](https://github.com/warith-harchaoui/audio-helper) |
-| extract frames or subtitles from a video | [`video-helper`](https://github.com/warith-harchaoui/video-helper) |
+| extract frames or subtitles from a video, or make it lighter without losing quality | [`video-helper`](https://github.com/warith-harchaoui/video-helper) |
 | record the webcam or the microphone | [`capture-helper`](https://github.com/warith-harchaoui/capture-helper) |
 | download a video, its audio or its thumbnail from YouTube, Vimeo, SoundCloud… | [`youtube-helper`](https://github.com/warith-harchaoui/youtube-helper) |
 | read any audio stream (a podcast feed, a radio, a URL) as samples | [`podcast-helper`](https://github.com/warith-harchaoui/podcast-helper) |
